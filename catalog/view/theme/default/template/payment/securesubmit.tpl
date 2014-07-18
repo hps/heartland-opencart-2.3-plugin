@@ -136,3 +136,4 @@ function loadjsfile(filename, filetype){
 }
 
 loadjsfile("catalog/view/javascript/secure.submit-1.0.2.js", "js") //dynamically load and add this .js file
+</script>
