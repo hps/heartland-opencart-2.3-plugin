@@ -1,25 +1,26 @@
 <?php
+
 class ControllerPaymentSecureSubmit extends Controller {
-	protected function index() {
+	public function index() {
 
         $this->document->addScript('catalog/view/javascript/secure.submit-1.0.2.js');
 
-		$this->language->load('payment/securesubmit');
+		$this->load->language('payment/securesubmit');
 
-		$this->data['text_credit_card'] = $this->language->get('text_credit_card');
-		$this->data['text_wait'] = $this->language->get('text_wait');
+		$data['text_credit_card'] = $this->language->get('text_credit_card');
+		$data['text_wait'] = $this->language->get('text_wait');
 
-		$this->data['entry_cc_owner'] = $this->language->get('entry_cc_owner');
-		$this->data['entry_cc_number'] = $this->language->get('entry_cc_number');
-		$this->data['entry_cc_expire_date'] = $this->language->get('entry_cc_expire_date');
-		$this->data['entry_cc_cvv2'] = $this->language->get('entry_cc_cvv2');
+		$data['entry_cc_owner'] = $this->language->get('entry_cc_owner');
+		$data['entry_cc_number'] = $this->language->get('entry_cc_number');
+		$data['entry_cc_expire_date'] = $this->language->get('entry_cc_expire_date');
+		$data['entry_cc_cvv2'] = $this->language->get('entry_cc_cvv2');
 
-		$this->data['button_confirm'] = $this->language->get('button_confirm');
+		$data['button_confirm'] = $this->language->get('button_confirm');
 
-		$this->data['months'] = array();
+		$data['months'] = array();
 
 		for ($i = 1; $i <= 12; $i++) {
-			$this->data['months'][] = array(
+			$data['months'][] = array(
 				'text'  => strftime('%B', mktime(0, 0, 0, $i, 1, 2000)),
 				'value' => sprintf('%02d', $i)
 			);
@@ -27,19 +28,19 @@ class ControllerPaymentSecureSubmit extends Controller {
 
 		$today = getdate();
 
-		$this->data['year_expire'] = array();
+		$data['year_expire'] = array();
 
 		for ($i = $today['year']; $i < $today['year'] + 11; $i++) {
-			$this->data['year_expire'][] = array(
+			$data['year_expire'][] = array(
 				'text'  => strftime('%Y', mktime(0, 0, 0, 1, 1, $i)),
 				'value' => strftime('%Y', mktime(0, 0, 0, 1, 1, $i))
 			);
 		}
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/securesubmit.tpl')) {
-			$this->template = $this->config->get('config_template') . '/template/payment/securesubmit.tpl';
+			return $this->load->view($this->config->get('config_template') . '/template/payment/securesubmit.tpl', $data);
 		} else {
-			$this->template = 'default/template/payment/securesubmit.tpl';
+			return $this->load->view('default/template/payment/securesubmit.tpl', $data);
 		}
 
 		$this->render();
@@ -60,7 +61,7 @@ class ControllerPaymentSecureSubmit extends Controller {
         $config->developerId = '002914';
 
         $chargeService = new HpsChargeService($config);
-        
+
         $address = new HpsAddress();
         $address->address = html_entity_decode($order_info['payment_address_1'], ENT_QUOTES, 'UTF-8');
         $address->city = html_entity_decode($order_info['payment_city'], ENT_QUOTES, 'UTF-8');
@@ -74,7 +75,7 @@ class ControllerPaymentSecureSubmit extends Controller {
         $cardHolder->phone = preg_replace('/[^0-9]/', '', $order_info['telephone']);
         $cardHolder->email = $order_info['email'];
         $cardHolder->address = $address;
-        
+
         $token = new HpsTokenData();
         $token->tokenValue = $_POST['securesubmitToken'];
 
