@@ -42,8 +42,6 @@ class ControllerPaymentSecureSubmit extends Controller {
 		} else {
 			return $this->load->view('default/template/payment/securesubmit.tpl', $data);
 		}
-
-		$this->render();
 	}
 
 	public function send() {
@@ -100,9 +98,6 @@ class ControllerPaymentSecureSubmit extends Controller {
                     false,
                     null);
 			}
-
-            $this->model_checkout_order->confirm($this->session->data['order_id'], $this->config->get('config_order_status_id'));
-
             $message = '';
             if (isset($response->transactionId))
                 $message .='Transaction ID:'.' '.$response->transactionId."\n";
@@ -111,14 +106,14 @@ class ControllerPaymentSecureSubmit extends Controller {
                 $message .='Card Type:'.' '.$response->cardType."\n";
 
 
-            $this->model_checkout_order->update($this->session->data['order_id'], $this->config->get('securesubmit_order_status_id'), $message, false);
-
-            $json['success'] = $this->url->link('checkout/success', '', 'SSL');
+            $this->model_checkout_order->addOrderHistory($this->session->data['order_id'], $this->config->get('securesubmit_order_status_id'), $message, false);
+            $json['redirect'] = $this->url->link('checkout/success');
 		}
 		catch (Exception $e) {
 			$json['error'] = $e->getMessage();
 		}
 
+		$this->response->addHeader('Content-Type: application/json');
  		$this->response->setOutput(json_encode($json));
  	}
 }

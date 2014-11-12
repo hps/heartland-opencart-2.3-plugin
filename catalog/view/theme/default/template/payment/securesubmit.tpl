@@ -80,6 +80,7 @@ function secureSubmitFormHandler() {
 					exp_year: year
 				},
 				success: function(response) {
+          console.log('alright, we hit a success point');
 					secureSubmitResponseHandler(response);
 				},
 				error: function(response) {
@@ -93,10 +94,11 @@ function secureSubmitFormHandler() {
 }
 
 function secureSubmitResponseHandler( response ) {
+
 	var bodyTag = $('body').first();
     if ( response.message ) {
         alert(response.message);
-        $('#button-confirm').button('loading');
+        $('#button-confirm').button('reset');
     } else {
         bodyTag.append("<input type='hidden' class='securesubmitToken' name='securesubmitToken' value='" + response.token_value + "'/>");
         form_submit();
@@ -114,21 +116,21 @@ function form_submit() {
 		type: 'post',
 		data: ret.join("&").replace(/%20/g, "+"),
 		dataType: 'json',
+    cache: false,
 		beforeSend: function() {
-		$('#button-confirm').button('reset');
+		$('#button-confirm').button('loading');
 		},
 		complete: function() {
-			$('#button-confirm').button('loading');
+			$('#button-confirm').button('reset');
 		},
-		success: function(json) {
-			if (json['error']) {
-				alert(json['error']);
-			}
-
-			if (json['redirect']) {
-				location = json['redirect'];
-			}
-		}
+    success: function(json){
+      if (json['error']) {
+       alert(json['error']);
+      }
+      if (json['redirect']) {
+        location = json['redirect'];
+      }
+    }
 	});
 }
 
