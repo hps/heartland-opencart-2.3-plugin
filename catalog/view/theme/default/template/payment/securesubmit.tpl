@@ -1,45 +1,55 @@
-<h2><?php echo $text_credit_card; ?></h2>
-<div class="content" id="payment">
-  <table class="form">
-    <tr>
-      <td><?php echo $entry_cc_owner; ?></td>
-      <td><input type="text" name="cc_owner" value="" /></td>
-    </tr>
-    <tr>
-      <td><?php echo $entry_cc_number; ?></td>
-      <td><input type="text" class="cc_number" value="" /></td>
-    </tr>
-    <tr>
-      <td><?php echo $entry_cc_expire_date; ?></td>
-      <td><select class="cc_expire_date_month">
+<form class="form-horizontal">
+  <fieldset id="payment">
+    <legend><?php echo $text_credit_card; ?></legend>
+    <div class="form-group required">
+      <label class="col-sm-2 control-label" for="input-cc-owner"><?php echo $entry_cc_owner; ?></label>
+       <div class="col-sm-10">
+        <input type="text" name="cc_owner" value="" placeholder="<?php echo $entry_cc_owner; ?>" id="input-cc-owner" class="form-control" />
+      </div>
+    </div>
+    <div class="form-group required">
+      <label class="col-sm-2 control-label" for="input-cc-number"><?php echo $entry_cc_number; ?></label>
+      <div class="col-sm-10">
+        <input type="text" name="cc_number" value="" placeholder="<?php echo $entry_cc_number; ?>" id="input-cc-number" class="form-control" />
+      </div>
+    </div>
+    <div class="form-group required">
+      <label class="col-sm-2 control-label" for="input-cc-expire-date"><?php echo $entry_cc_expire_date; ?></label>
+      <div class="col-sm-3">
+        <select name="cc_expire_date_month" id="input-cc-expire-date-month" class="form-control">
           <?php foreach ($months as $month) { ?>
           <option value="<?php echo $month['value']; ?>"><?php echo $month['text']; ?></option>
           <?php } ?>
         </select>
-        /
-        <select class="cc_expire_date_year">
+      </div>
+      <div class="col-sm-3">
+        <select name="cc_expire_date_year" id="input-cc-expire-date-year" class="form-control">
           <?php foreach ($year_expire as $year) { ?>
           <option value="<?php echo $year['value']; ?>"><?php echo $year['text']; ?></option>
           <?php } ?>
-        </select></td>
-    </tr>
-    <tr>
-      <td><?php echo $entry_cc_cvv2; ?></td>
-      <td><input type="text" class="cc_cvv2" value="" size="3" /></td>
-    </tr>
-  </table>
-</div>
+        </select>
+      </div>
+    </div>
+    <div class="form-group required">
+      <label class="col-sm-2 control-label" for="input-cc-cvv2"><?php echo $entry_cc_cvv2; ?></label>
+      <div class="col-sm-10">
+        <input type="text" name="cc_cvv2" value="" placeholder="<?php echo $entry_cc_cvv2; ?>" id="input-cc-cvv2" class="form-control" />
+      </div>
+    </div>
+  </fieldset>
+</form>
 <div class="buttons">
-  <div class="right"><input type="button" value="<?php echo $button_confirm; ?>" id="button-confirm" class="button" /></div>
+  <div class="pull-right">
+    <input type="button" value="<?php echo $button_confirm; ?>" id="button-confirm" class="btn btn-primary" />
+  </div>
 </div>
 <script type="text/javascript"><!--
 $('#button-confirm').bind('click', secureSubmitFormHandler);
-
-    $(".cc_number").keydown(function (e) {
+    $("#input-cc-number").keydown(function (e) {
         // Allow: backspace, delete, tab, escape, enter and .
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
              // Allow: Ctrl+A
-            (e.keyCode == 65 && e.ctrlKey === true) || 
+            (e.keyCode == 65 && e.ctrlKey === true) ||
              // Allow: home, end, left, right
             (e.keyCode >= 35 && e.keyCode <= 39)) {
                  // let it happen, don't do anything
@@ -52,15 +62,15 @@ $('#button-confirm').bind('click', secureSubmitFormHandler);
     });
 
 function secureSubmitFormHandler() {
-	
-	var securesubmit_public_key = '<?php echo 
-	($this->config->get('securesubmit_mode') == 'test') ? $this->config->get('securesubmit_test_public_key') : $this->config->get('securesubmit_live_public_key'); ?>';
-	
-		if ( jQuery( 'input.securesubmitToken' ).size() == 0 ) {
-			var card 	= jQuery('.cc_number').val().replace(/\D/g, '');
-			var cvc 	= jQuery('.cc_cvv2').val();
-			var month	= jQuery('.cc_expire_date_month').val();
-			var year	= jQuery('.cc_expire_date_year').val();
+
+	var securesubmit_public_key = "<?php global $config; echo
+	($config->get('securesubmit_mode') == 'test') ? $config->get('securesubmit_test_public_key') : $config->get('securesubmit_live_public_key'); ?>";
+
+		if ( $( 'input.securesubmitToken' ).size() == 0 ) {
+			var card 	= $('#input-cc-number').val().replace(/\D/g, '');
+			var cvc 	= $('#input-cc-cvv2').val();
+			var month	= $('#input-cc-expire-date-month').val();
+			var year	= $('#input-cc-expire-date-year').val();
 			hps.tokenize({
 				data: {
 					public_key: securesubmit_public_key,
@@ -70,6 +80,7 @@ function secureSubmitFormHandler() {
 					exp_year: year
 				},
 				success: function(response) {
+          console.log('alright, we hit a success point');
 					secureSubmitResponseHandler(response);
 				},
 				error: function(response) {
@@ -83,45 +94,43 @@ function secureSubmitFormHandler() {
 }
 
 function secureSubmitResponseHandler( response ) {
-	var bodyTag = jQuery('body').first();
-   
+
+	var bodyTag = $('body').first();
     if ( response.message ) {
         alert(response.message);
-        $('#button-confirm').attr('disabled', false);
+        $('#button-confirm').button('reset');
     } else {
         bodyTag.append("<input type='hidden' class='securesubmitToken' name='securesubmitToken' value='" + response.token_value + "'/>");
         form_submit();
     }
 }
 
-function form_submit( ) {
+function form_submit() {
     var ret = [];
-    jQuery(':input').each(function(index) {
+    $(':input').each(function(index) {
         ret.push( encodeURIComponent(this.name) + "=" + encodeURIComponent( $(this).val() ) );
     });
-    
+
 	$.ajax({
 		url: 'index.php?route=payment/securesubmit/send',
 		type: 'post',
 		data: ret.join("&").replace(/%20/g, "+"),
-		dataType: 'json',		
+		dataType: 'json',
+    cache: false,
 		beforeSend: function() {
-		$('#button-confirm').attr('disabled', true);
-		$('#payment').before('<div class="attention"><img src="catalog/view/theme/default/image/loading.gif" alt="" /> <?php echo $text_wait; ?></div>');
+		$('#button-confirm').button('loading');
 		},
 		complete: function() {
-			$('#button-confirm').attr('disabled', false);
-			$('.attention').remove();
-		},				
-		success: function(json) {
-			if (json['error']) {
-				alert(json['error']);
-			}
-			
-			if (json['success']) {
-				location = json['success'];
-			}
-		}
+			$('#button-confirm').button('reset');
+		},
+    success: function(json){
+      if (json['error']) {
+       alert(json['error']);
+      }
+      if (json['redirect']) {
+        location = json['redirect'];
+      }
+    }
 	});
 }
 
