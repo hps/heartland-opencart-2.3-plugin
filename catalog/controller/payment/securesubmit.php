@@ -58,8 +58,8 @@ class ControllerPaymentSecureSubmit extends Controller {
         $config->versionNumber = '1550';
         $config->developerId = '002914';
 
-        $chargeService = new HpsChargeService($config);
-
+       $chargeService = new HpsCreditService($config);
+        
         $address = new HpsAddress();
         $address->address = html_entity_decode($order_info['payment_address_1'], ENT_QUOTES, 'UTF-8');
         $address->city = html_entity_decode($order_info['payment_city'], ENT_QUOTES, 'UTF-8');
