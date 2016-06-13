@@ -1,41 +1,55 @@
 <form class="form-horizontal">
   <fieldset id="payment">
-    <legend><?php echo $text_credit_card; ?></legend>
+    <legend><?php echo $text_credit_card; ?>
+      <div class="ss-shield">
+        <h6>We accept Visa, Mastercard, AMEX, Discover & JCB </h4>
+      </div>
+    </legend>
+
+    <div class="form-group required col-md-10 ">
+
+      <label class="control-label ss-label" for="input-cc-owner"><?php echo $entry_cc_owner; ?></label></br>
+       
+        <input type="text" name="cc_owner" value="" placeholder="<?php echo $entry_cc_owner; ?>" id="input-cc-owner" class="form-control ss-form-control" />
+   
+    </div>
+     <div class="form-group required col-md-10">
+  
+      <label class="control-label ss-label" for="input-cc-number"><?php echo $entry_cc_number; ?></label></br>
+     
+        <input type="text" name="cc_number" value="" placeholder="<?php echo $entry_cc_number; ?>" id="input-cc-number" class="form-control ss-form-control card-type-icon" />
+    
+    </div>
+</br>
+   <div class="form-group required col-md-5">
+      <label class="control-label ss-label" for="input-cc-expire-date"><?php echo $entry_cc_expire_date; ?></label></br>
+         
+        <input type="text" name="cc_expire_date_month" id="input-cc-expire-date-month" class="form-control ss-form-control" placeholder="mm / yy" />
+      
+    </div>
+    <div class="form-group required col-md-5 col-md-offset-7"> 
+        <label class="control-label ss-label cvv-label" for="input-cc-cvv2"><?php echo $entry_cc_cvv2; ?></label></br>
+      
+        <input type="text" name="cc_cvv2" value="" placeholder="<?php echo $entry_cc_cvv2; ?>" id="input-cc-cvv2" class="form-control ss-form-control cvv-icon"  />
+         
+   
+    </div>
+<!--
     <div class="form-group required">
-      <label class="col-sm-2 control-label" for="input-cc-owner"><?php echo $entry_cc_owner; ?></label>
-       <div class="col-sm-10">
-        <input type="text" name="cc_owner" value="" placeholder="<?php echo $entry_cc_owner; ?>" id="input-cc-owner" class="form-control" />
+      <label class="col-md-5 control-label ss-label" for="input-cc-expire-date"><?php echo $entry_cc_expire_date; ?></label></br>
+          <div class="col-sm-10 col-md-5">
+        <input type="text" name="cc_expire_date_month" id="input-cc-expire-date-month" class="form-control ss-form-control" placeholder="mm / yy"></input>
       </div>
     </div>
-    <div class="form-group required">
-      <label class="col-sm-2 control-label" for="input-cc-number"><?php echo $entry_cc_number; ?></label>
-      <div class="col-sm-10">
-        <input type="text" name="cc_number" value="" placeholder="<?php echo $entry_cc_number; ?>" id="input-cc-number" class="form-control" />
-      </div>
+    <div class="form-group required"> 
+        <label class="col-md-5 control-label ss-label" for="input-cc-cvv2"><?php echo $entry_cc_cvv2; ?></label></br>
+      <div class="col-sm-10 col-md-5">
+        <input type="text" name="cc_cvv2" value="" placeholder="<?php echo $entry_cc_cvv2; ?>" id="input-cc-cvv2" class="form-control ss-form-control cvv-icon"  />
+         
+       </div>  
     </div>
-    <div class="form-group required">
-      <label class="col-sm-2 control-label" for="input-cc-expire-date"><?php echo $entry_cc_expire_date; ?></label>
-      <div class="col-sm-3">
-        <select name="cc_expire_date_month" id="input-cc-expire-date-month" class="form-control">
-          <?php foreach ($months as $month) { ?>
-          <option value="<?php echo $month['value']; ?>"><?php echo $month['text']; ?></option>
-          <?php } ?>
-        </select>
-      </div>
-      <div class="col-sm-3">
-        <select name="cc_expire_date_year" id="input-cc-expire-date-year" class="form-control">
-          <?php foreach ($year_expire as $year) { ?>
-          <option value="<?php echo $year['value']; ?>"><?php echo $year['text']; ?></option>
-          <?php } ?>
-        </select>
-      </div>
-    </div>
-    <div class="form-group required">
-      <label class="col-sm-2 control-label" for="input-cc-cvv2"><?php echo $entry_cc_cvv2; ?></label>
-      <div class="col-sm-10">
-        <input type="text" name="cc_cvv2" value="" placeholder="<?php echo $entry_cc_cvv2; ?>" id="input-cc-cvv2" class="form-control" />
-      </div>
-    </div>
+    -->
+
   </fieldset>
 </form>
 <div class="buttons">
