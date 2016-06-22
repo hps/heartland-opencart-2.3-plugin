@@ -1,7 +1,7 @@
 /*Makenzie*/
 .ss-form-control {
   text-transform:uppercase;
-  border:1px solid #ababab;
+  border:1px solid #636363;
   border-radius:0px;
   display:-webkit-inline-box;
   height:40px;
@@ -20,11 +20,8 @@
 
 .form-horizontal .control-label {
   text-align:left;
-  width:60%;
+  width:50%;
   padding-left:none;
-  font-weight:400;
-  margin-bottom:5px;
-  color:#777777;
 }
 
 .form-horizontal .form-group {
@@ -41,15 +38,6 @@
   background-repeat:no-repeat;
   background-position:right;
   background-size:60px 36px;
-}
-
-/*#temp-icon {
-  background-image:url("ss-inputcard-blank@2x.png");
-  background-repeat:no-repeat;
-  background-size:60px 36px;
-  width:60px;
-  height:36px;
-  float:right;
 }
 
 /*IF AMEX///////////////////////////
@@ -207,7 +195,4 @@
   .cvv-label {
     margin-left:30px;
   }
-
-
-
 }

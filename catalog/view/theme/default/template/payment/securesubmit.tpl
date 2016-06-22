@@ -18,14 +18,14 @@
 
       <label class="control-label ss-label" for="input-cc-number"><?php echo $entry_cc_number; ?></label></br>
 
-        <input type="text" name="cc_number" value="" placeholder="<?php echo $entry_cc_number; ?>" id="input-cc-number" class="form-control ss-form-control card-type-icon" />
+        <input type="text" value="" placeholder="•••• •••• •••• ••••" id="input-cc-number" class="form-control ss-form-control card-type-icon" />
 
     </div>
 </br>
    <div class="form-group required col-md-5">
       <label class="control-label ss-label" for="input-cc-expire-date"><?php echo $entry_cc_expire_date; ?></label></br>
 
-        <input type="text" name="cc_expire_date_month" id="input-cc-expire-date-month" class="form-control ss-form-control" placeholder="mm / yy" />
+        <input type="text" name="cc_expire_date" id="input-cc-expire-date" class="form-control ss-form-control" placeholder="MM / YYYY" />
 
     </div>
     <div class="form-group required col-md-5 col-md-offset-7">
@@ -35,22 +35,6 @@
 
 
     </div>
-<!--
-    <div class="form-group required">
-      <label class="col-md-5 control-label ss-label" for="input-cc-expire-date"><?php echo $entry_cc_expire_date; ?></label></br>
-          <div class="col-sm-10 col-md-5">
-        <input type="text" name="cc_expire_date_month" id="input-cc-expire-date-month" class="form-control ss-form-control" placeholder="mm / yy"></input>
-      </div>
-    </div>
-    <div class="form-group required">
-        <label class="col-md-5 control-label ss-label" for="input-cc-cvv2"><?php echo $entry_cc_cvv2; ?></label></br>
-      <div class="col-sm-10 col-md-5">
-        <input type="text" name="cc_cvv2" value="" placeholder="<?php echo $entry_cc_cvv2; ?>" id="input-cc-cvv2" class="form-control ss-form-control cvv-icon"  />
-
-       </div>
-    </div>
-    -->
-
   </fieldset>
 </form>
 <div class="buttons">
