@@ -1,0 +1,119 @@
+/*Makenzie*/
+.ss-form-control {
+  text-transform:uppercase;
+  border:1px solid #636363;
+  border-radius:0px;
+  display:-webkit-inline-box;
+  height:40px;
+}
+
+.ss-form-control:focus {
+  text-transform:uppercase;
+  border:1px solid #3989e3;
+  border-radius:0px;
+  box-shadow:none;
+}
+
+.ss-label {
+  text-transform:uppercase;
+}
+
+.form-horizontal .control-label {
+  text-align:left;
+  width:50%;
+  padding-left:none;
+}
+
+.form-horizontal .form-group {
+  clear:none;
+}
+
+.form-group {
+  margin-bottom:none;
+}
+
+
+.cvv-icon {
+  background-image:url("../image/cvv1.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:60px 36px;
+}
+
+/*IF AMEX///////////////////////////
+.cvv-icon {
+  background-image:url("../image/cvv2.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:125px 30px;
+}
+*/
+
+
+.ss-shield {
+  background-image:url("../image/ss-shield@2x.png");
+  background-size:50px 50px;
+  height:50px;
+  background-repeat:no-repeat;
+  margin:15px 5px;
+}
+
+.card-type-visa {
+  background-image:url("../image/ss-inputcard-visa@2x.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:81px 48px;
+}
+
+.card-type-mastercard {
+  background-image:url("../image/ss-inputcard-mastercard@2x.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:60px 39px;
+}
+
+.card-type-discover {
+  background-image:url("../image/ss-inputcard-discover@2x.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:93px 44px;
+}
+
+.card-type-jcb {
+  background-image:url("../image/ss-inputcard-jcb@2x.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:61px 37px;
+}
+
+.card-type-amex {
+  background-image:url("../image/ss-inputcard-amex@2x.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:51px 34px;
+}
+
+#payment h6 {
+  display:inline;
+  margin-left:72px;
+  margin-top:20px;
+}
+
+.col-md-6 {
+  float:none;
+}
+.col-sm-10 {
+  float:none;
+}
+
+@media (min-width: 992px) {
+
+  .cvv-icon {
+    margin-left:30px;
+    background-position:right;
+  }
+
+  .cvv-label {
+    margin-left:30px;
+  }
+}
