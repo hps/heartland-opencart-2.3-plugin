@@ -1,7 +1,7 @@
 /*Makenzie*/
 .ss-form-control {
   text-transform:uppercase;
-  border:1px solid #636363;
+  border:1px solid #ababab;
   border-radius:0px;
   display:-webkit-inline-box;
   height:40px;
@@ -20,8 +20,10 @@
 
 .form-horizontal .control-label {
   text-align:left;
-  width:50%;
+  width:60%;
   padding-left:none;
+  font-weight:400;
+  margin-bottom:5px;
 }
 
 .form-horizontal .form-group {
@@ -97,6 +99,16 @@
   display:inline;
   margin-left:72px;
   margin-top:20px;
+  vertical-align: -webkit-baseline-middle;
+}
+
+#button-confirm {
+  border-radius:0;
+  background-color:#3989e3;
+  border-color:#2e6da4;
+}
+#button-confirm:hover {
+  background-color:#2e6da4;
 }
 
 .col-md-6 {

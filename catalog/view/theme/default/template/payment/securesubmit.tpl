@@ -3,7 +3,7 @@
   <fieldset id="payment">
     <legend><?php echo $text_credit_card; ?>
       <div class="ss-shield">
-        <h6>We accept Visa, Mastercard, AMEX, Discover & JCB </h4>
+        <h6 class="hidden-xs">We accept Visa, Mastercard, AMEX, Discover & JCB </h4>
       </div>
     </legend>
 
@@ -21,7 +21,7 @@
         <input type="text" value="" placeholder="•••• •••• •••• ••••" id="input-cc-number" class="form-control ss-form-control card-type-icon" />
 
     </div>
-</br>
+
    <div class="form-group required col-md-5">
       <label class="control-label ss-label" for="input-cc-expire-date"><?php echo $entry_cc_expire_date; ?></label></br>
 
