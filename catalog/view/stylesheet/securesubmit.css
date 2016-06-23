@@ -1,7 +1,7 @@
 /*Makenzie*/
 .ss-form-control {
   text-transform:uppercase;
-  border:1px solid #636363;
+  border:1px solid #ababab;
   border-radius:0px;
   display:-webkit-inline-box;
   height:40px;
@@ -20,8 +20,10 @@
 
 .form-horizontal .control-label {
   text-align:left;
-  width:50%;
+  width:60%;
   padding-left:none;
+  font-weight:400;
+  margin-bottom:5px;
 }
 
 .form-horizontal .form-group {
