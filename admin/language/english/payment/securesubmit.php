@@ -3,6 +3,7 @@
 $_['heading_title']      		= 'SecureSubmit';
 $_['text_edit']    				= 'Edit Secure Submit';
 $_['text_checkout_settings']    = 'Checkout Settings';
+$_['text_velocity_settings']    = 'Fraud Options';
 
 // Text
 $_['text_payment']       		= 'Payment';
@@ -28,6 +29,11 @@ $_['entry_order_status'] = 'Order Status';
 $_['entry_geo_zone']     = 'Geo Zone';
 $_['entry_status']       = 'Status';
 $_['entry_sort_order']   = 'Sort Order';
+// Fraud options
+$_['entry_fraud_enable'] = 'Enable Fraud Options';
+$_['entry_fraud_message']= 'Display Message';
+$_['entry_fraud_fail']   = 'How many failed attempts before blocking?';
+$_['entry_fraud_time']   = 'How long (in minutes) should we keep a tally of recent failures?';
 
 // Error
 $_['error_permission']   = 'Warning: You do not have permission to modify payment SecureSubmit!';
