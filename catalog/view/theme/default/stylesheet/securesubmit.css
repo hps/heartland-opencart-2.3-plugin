@@ -1,7 +1,7 @@
 /*Makenzie*/
 .ss-form-control {
   text-transform:uppercase;
-  border:1px solid #ababab;
+  border:1px solid #636363;
   border-radius:0px;
   display:-webkit-inline-box;
   height:40px;
@@ -20,11 +20,8 @@
 
 .form-horizontal .control-label {
   text-align:left;
-  width:60%;
+  width:50%;
   padding-left:none;
-  font-weight:400;
-  margin-bottom:5px;
-  color:#777777;
 }
 
 .form-horizontal .form-group {
@@ -43,15 +40,6 @@
   background-size:60px 36px;
 }
 
-/*#temp-icon {
-  background-image:url("ss-inputcard-blank@2x.png");
-  background-repeat:no-repeat;
-  background-size:60px 36px;
-  width:60px;
-  height:36px;
-  float:right;
-}
-
 /*IF AMEX///////////////////////////
 .cvv-icon {
   background-image:url("../image/cvv2.png");
@@ -67,76 +55,63 @@
   background-size:50px 50px;
   height:50px;
   background-repeat:no-repeat;
+  margin:15px 5px;
   display:inline-flex;
   width:50px;
 }
 
+
 .visa-gray {
-  background-image:url("../image/visa-gray.png");
-  background-size:50px 18px;
-  height:18px;
+  background-image:url("../image/ss-shield@2x.png");
+  background-size:50px 50px;
+  height:50px;
   background-repeat:no-repeat;
   margin:15px 5px;
+  display:inline;
   display:-webkit-inline-box;
-  width:50px;
-  opacity:0.9;
+  width:40px;
 }
 
 .amex-gray {
-  background-image:url("../image/amex-gray.png");
-  background-size:30px 30px;
-  height:30px;
+  background-image:url("../image/ss-shield@2x.png");
+  background-size:50px 50px;
+  height:50px;
   background-repeat:no-repeat;
   margin:15px 5px;
   display:-webkit-inline-box;
-  width:30px;
-  opacity:0.9;
-    vertical-align:sub;
+  width:40px;
 }
 
 .jcb-gray {
-  background-image:url("../image/jcb-gray.png");
-  background-size:40px 30px;
+  background-image:url("../image/ss-shield@2x.png");
+  background-size:50px 50px;
+  height:50px;
+  background-repeat:no-repeat;
+  margin:15px 5px;
+  display:-webkit-inline-box;
+  width:40px;
+}
+
+.disc-gray {
+  background-image:url("../image/ss-shield@2x.png");
+  background-size:50px 50px;
   height:30px;
   background-repeat:no-repeat;
   margin:15px 5px;
   display:-webkit-inline-box;
   width:40px;
-  opacity:0.9;
-    vertical-align:sub;
-}
-
-.disc-gray {
-  background-image:url("../image/disc-gray.png");
-  background-size:70px 50px;
-  height:31px;
-  background-repeat:no-repeat;
-  margin:15px 5px;
-  display:-webkit-inline-box;
-  width:70px;
-  opacity:0.9;
-    vertical-align:sub;
-}
-
-.card-type-icon {
-  background-image:url("../image/ss-inputcard-blank@2x.png");
-  background-repeat:no-repeat;
-  background-position:right;
-  background-size:56px 33px;
-
 }
 
 .mc-gray {
-  background-image:url("../image/mc-gray.png");
-  background-size:50px 30px;
-  height:30px;
+  background-image:url("../image/ss-shield@2x.png");
+  background-size:50px 50px;
+  height:50px;
   background-repeat:no-repeat;
   margin:15px 5px;
   display:-webkit-inline-box;
-  width:50px;
-  opacity:0.9;
-  vertical-align:sub;
+  width:40px;
 }
+
 
 .card-type-visa {
   background-image:url("../image/ss-inputcard-visa@2x.png");
@@ -177,17 +152,6 @@
   display:inline;
   margin-left:72px;
   margin-top:20px;
-  vertical-align: -webkit-baseline-middle;
-  color:#555555;
-}
-
-#button-confirm {
-  border-radius:0;
-  background-color:#3989e3;
-  border-color:#2e6da4;
-}
-#button-confirm:hover {
-  background-color:#2e6da4;
 }
 
 .col-md-6 {
@@ -207,7 +171,4 @@
   .cvv-label {
     margin-left:30px;
   }
-
-
-
 }
