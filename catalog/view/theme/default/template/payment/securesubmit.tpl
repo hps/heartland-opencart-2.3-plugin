@@ -1,19 +1,24 @@
 <link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/securesubmit.css">
 <form class="form-horizontal">
   <fieldset id="payment">
-    <legend><?php echo $text_credit_card; ?>
-      <div class="ss-shield">
-        <h6 class="hidden-xs">We accept Visa, Mastercard, AMEX, Discover & JCB </h4>
-      </div>
+    <legend><?php echo $text_credit_card; ?><br>
+
+      <div class="ss-shield">  </div>
+        <div class="visa-gray hidden-xs "></div>
+        <div class="mc-gray hidden-xs"></div>
+        <div class="amex-gray hidden-xs"></div>
+        <div class="jcb-gray hidden-xs"></div>
+        <div class="disc-gray hidden-xs"></div>
+
     </legend>
 
-    <div class="form-group required col-md-10 ">
+  <!--  <div class="form-group required col-md-10 ">
 
       <label class="control-label ss-label" for="input-cc-owner"><?php echo $entry_cc_owner; ?></label></br>
 
         <input type="text" name="cc_owner" value="" placeholder="<?php echo $entry_cc_owner; ?>" id="input-cc-owner" class="form-control ss-form-control" />
 
-    </div>
+    </div> -->
      <div class="form-group required col-md-10">
 
       <label class="control-label ss-label" for="input-cc-number"><?php echo $entry_cc_number; ?></label></br>
