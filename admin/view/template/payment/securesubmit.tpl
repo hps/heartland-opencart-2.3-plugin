@@ -32,15 +32,7 @@
                 <input type="hidden" name="securesubmit_module[1][layout_id]" value="7" />
                 <input type="hidden" name="securesubmit_module[1][status]" value="1" />
                 <input type="hidden" name="securesubmit_module[1][sort_order]" value="0" />
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-test-private-key"><?php echo $entry_test_private_key; ?></label>
-                    <div class="col-sm-10">
-                        <input type="text" name="securesubmit_test_private_key" value="<?php echo $securesubmit_test_private_key; ?>" placeholder="<?php echo $entry_test_private_key; ?>" id="input-test-private-key" class="form-control"/>
-                        <?php if ($error_test_private_key) { ?>
-                        <span class="error"><?php echo $error_test_private_key; ?></span>
-                        <?php } ?>
-                    </div>
-                </div>
+
                 <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-test-public-key"><?php echo $entry_test_public_key; ?></label>
                     <div class="col-sm-10">
@@ -51,11 +43,11 @@
                     </div>
                 </div>
                 <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-live-private-key"><?php echo $entry_live_private_key; ?></label>
+                    <label class="col-sm-2 control-label" for="input-test-private-key"><?php echo $entry_test_private_key; ?></label>
                     <div class="col-sm-10">
-                        <input type="text" name="securesubmit_live_private_key" value="<?php echo $securesubmit_live_private_key; ?>" placeholder="<?php echo $entry_live_private_key; ?>" id="input-live-private-key" class="form-control"/>
-                        <?php if ($error_live_private_key) { ?>
-                        <span class="error"><?php echo $error_live_private_key; ?></span>
+                        <input type="text" name="securesubmit_test_private_key" value="<?php echo $securesubmit_test_private_key; ?>" placeholder="<?php echo $entry_test_private_key; ?>" id="input-test-private-key" class="form-control"/>
+                        <?php if ($error_test_private_key) { ?>
+                        <span class="error"><?php echo $error_test_private_key; ?></span>
                         <?php } ?>
                     </div>
                 </div>
@@ -65,6 +57,15 @@
                         <input type="text" name="securesubmit_live_public_key" value="<?php echo $securesubmit_live_public_key; ?>" placeholder="<?php echo $entry_live_public_key; ?>" id="input-live-public-key" class="form-control"/>
                         <?php if ($error_live_public_key) { ?>
                         <span class="error"><?php echo $error_live_public_key; ?></span>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-live-private-key"><?php echo $entry_live_private_key; ?></label>
+                    <div class="col-sm-10">
+                        <input type="text" name="securesubmit_live_private_key" value="<?php echo $securesubmit_live_private_key; ?>" placeholder="<?php echo $entry_live_private_key; ?>" id="input-live-private-key" class="form-control"/>
+                        <?php if ($error_live_private_key) { ?>
+                        <span class="error"><?php echo $error_live_private_key; ?></span>
                         <?php } ?>
                     </div>
                 </div>
