@@ -72,7 +72,7 @@
 }
 
 .visa-gray {
-  background-image:url("../image/visa-gray.png");
+  background-image:url("../image/visa.png");
   background-size:50px 18px;
   height:18px;
   background-repeat:no-repeat;
@@ -83,7 +83,7 @@
 }
 
 .amex-gray {
-  background-image:url("../image/amex-gray.png");
+  background-image:url("../image/amex.jpg");
   background-size:30px 30px;
   height:30px;
   background-repeat:no-repeat;
@@ -95,7 +95,7 @@
 }
 
 .jcb-gray {
-  background-image:url("../image/jcb-gray.png");
+  background-image:url("../image/JCB.png");
   background-size:40px 30px;
   height:30px;
   background-repeat:no-repeat;
@@ -107,9 +107,9 @@
 }
 
 .disc-gray {
-  background-image:url("../image/disc-gray.png");
-  background-size:70px 50px;
-  height:31px;
+  background-image:url("../image/discover.jpg");
+  background-size:60px 40px;
+  height:40px;
   background-repeat:no-repeat;
   margin:15px 5px;
   display:-webkit-inline-box;
@@ -127,7 +127,7 @@
 }
 
 .mc-gray {
-  background-image:url("../image/mc-gray.png");
+  background-image:url("../image/mastercard.png");
   background-size:50px 30px;
   height:30px;
   background-repeat:no-repeat;
@@ -207,7 +207,4 @@
   .cvv-label {
     margin-left:30px;
   }
-
-
-
 }
