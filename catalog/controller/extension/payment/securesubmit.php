@@ -30,7 +30,7 @@ require_once('securesubmitfiles/Hps.php');
  * \ControllerPaymentSecureSubmit::send
  * Class ControllerPaymentSecureSubmit
  */
-class ControllerPaymentSecureSubmit extends Controller
+class ControllerExtensionPaymentSecuresubmit extends Controller
 {
 
     const VERSION_NUMBER = '1550';

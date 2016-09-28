@@ -1,5 +1,5 @@
 <?php
-class ModelPaymentSecureSubmit extends Model {
+class ModelExtensionPaymentSecuresubmit extends Model {
   	public function getMethod($address, $total) {
 		$this->load->language('payment/securesubmit');
 
