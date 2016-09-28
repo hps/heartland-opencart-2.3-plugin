@@ -3,7 +3,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('payment/securesubmit');
+		$this->load->language('extension/payment/securesubmit');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -14,7 +14,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL'));
+			$this->response->redirect($this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=payment', 'SSL'));
 		}
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -90,18 +90,18 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text'      => $this->language->get('text_payment'),
-			'href'      => $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL'),
+			'href'      => $this->url->link('extension/extension', 'token=' . $this->session->data['token'], 'SSL'),
 			'separator' => ' :: '
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text'      => $this->language->get('heading_title'),
-			'href'      => $this->url->link('payment/securesubmit', 'token=' . $this->session->data['token'], 'SSL'),
+			'href'      => $this->url->link('extension/payment/securesubmit', 'token=' . $this->session->data['token'], 'SSL'),
 		);
 
-		$data['action'] = $this->url->link('payment/securesubmit', 'token=' . $this->session->data['token'], 'SSL');
+		$data['action'] = $this->url->link('extension/payment/securesubmit', 'token=' . $this->session->data['token'], 'SSL');
 
-		$data['cancel'] = $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL');
+		$data['cancel'] = $this->url->link('extension/extension', 'token=' . $this->session->data['token'], 'SSL');
 
 		if (isset($this->request->post['securesubmit_test_public_key'])) {
 			$data['securesubmit_test_public_key'] = $this->request->post['securesubmit_test_public_key'];
@@ -206,11 +206,11 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('payment/securesubmit.tpl', $data));
+		$this->response->setOutput($this->load->view('extension/payment/securesubmit.tpl', $data));
 	}
 
 	protected function validate() {
-		if (!$this->user->hasPermission('modify', 'payment/securesubmit')) {
+		if (!$this->user->hasPermission('modify', 'extension/payment/securesubmit')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 

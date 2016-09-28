@@ -112,7 +112,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
 
         $this->document->addScript('catalog/view/javascript/secure.submit-1.0.2.js');
 
-        $this->load->language('payment/securesubmit');
+        $this->load->language('extension/payment/securesubmit');
 
         $data['text_credit_card'] = $this->language->get('text_credit_card');
         $data['text_wait'] = $this->language->get('text_wait');
@@ -144,10 +144,19 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
             );
         }
 
-        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/securesubmit.tpl')) {
-            return $this->load->view($this->config->get('config_template') . '/template/payment/securesubmit.tpl', $data);
+        if (isset($this->request->server['HTTPS'])
+            && (($this->request->server['HTTPS'] == 'on')
+                || ($this->request->server['HTTPS'] == '1'))
+        ) {
+            $data['base_url'] = $this->config->get('config_ssl');
         } else {
-            return $this->load->view('payment/securesubmit.tpl', $data);
+            $data['base_url'] = $this->config->get('config_url');
+        }
+
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/securesubmit.tpl')) {
+            return $this->load->view($this->config->get('config_template') . '/template/extension/payment/securesubmit.tpl', $data);
+        } else {
+            return $this->load->view('extension/payment/securesubmit.tpl', $data);
         }
     }
 
@@ -433,6 +442,15 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
          */
         $HPS_KEY = $this->securesubmit_fraud_fail_var;
         //unset($this->session->data[$HPS_KEY]);
+
+        if (!isset($this->session->data[$HPS_KEY])) {
+            $this->session->data[$HPS_KEY] = array(
+                'count'         => 0,
+                'previous'      => '',
+                'lastErrorTime' => 0,
+            );
+        }
+
         $timeOut = (int)$this->session->data[$HPS_KEY]['lastErrorTime'] + $this->securesubmit_fraud_time;
 
         if ($timeOut < time()) { // expired
