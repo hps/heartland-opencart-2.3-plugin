@@ -24,12 +24,13 @@
 require_once('securesubmitfiles/Hps.php');
 
 /**
- * Class ControllerPaymentSecureSubmit
+ * Class ControllerExtensionPaymentSecuresubmit
  * consumable functions
- * \ControllerPaymentSecureSubmit::index
- * \ControllerPaymentSecureSubmit::send
- * Class ControllerPaymentSecureSubmit
+ * \ControllerExtensionPaymentSecuresubmit::index
+ * \ControllerExtensionPaymentSecuresubmit::send
+ * Class ControllerExtensionPaymentSecuresubmit
  */
+
 class ControllerExtensionPaymentSecuresubmit extends Controller
 {
 
@@ -63,6 +64,10 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
      * @var null|string
      */
     private $secure_submit_private_key = null;
+    /**
+     * @var null|string
+     */
+    private $secure_submit_public_key = null;
 
     /**
      * @var null
@@ -109,11 +114,9 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
      */
     public function index()
     {
-
-        $this->document->addScript('catalog/view/javascript/secure.submit-1.0.2.js');
-
+        //$this->document->addScript('catalog/view/javascript/secure.submit-1.0.2.js');
         $this->load->language('extension/payment/securesubmit');
-
+        $data['publicKey'] = $this->get_secure_submit_public_key();
         $data['text_credit_card'] = $this->language->get('text_credit_card');
         $data['text_wait'] = $this->language->get('text_wait');
 
@@ -143,16 +146,15 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
                 'value' => strftime('%Y', mktime(0, 0, 0, 1, 1, $i))
             );
         }
-
-        if (isset($this->request->server['HTTPS'])
+        //echo __FILE__;
+        /*if (isset($this->request->server['HTTPS'])
             && (($this->request->server['HTTPS'] == 'on')
                 || ($this->request->server['HTTPS'] == '1'))
         ) {
             $data['base_url'] = $this->config->get('config_ssl');
         } else {
             $data['base_url'] = $this->config->get('config_url');
-        }
-
+        }*/
         if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/securesubmit.tpl')) {
             return $this->load->view($this->config->get('config_template') . '/template/extension/payment/securesubmit.tpl', $data);
         } else {
@@ -349,6 +351,23 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
     }
 
     /**
+     * @return null|string
+     * @throws \HpsAuthenticationException
+     */
+    private function get_secure_submit_public_key()
+    {
+        if ($this->HpsServicesConfig->publicApiKey === null) {
+            $mode = trim($this->config->get('securesubmit_mode'));
+            $this->HpsServicesConfig->publicApiKey =
+                filter_var(trim($this->config->get('securesubmit_' . $mode . '_public_key')), FILTER_SANITIZE_STRING);
+        }
+        if (!$this->HpsServicesConfig->validate(HpsConfigInterface::KEY_TYPE_PUBLIC)) {
+            throw new HpsAuthenticationException(HpsExceptionCodes::AUTHENTICATION_ERROR, 'Incorrectly configured PublicKey');
+        };
+        return $this->secure_submit_public_key = $this->HpsServicesConfig->publicApiKey;
+    }
+
+    /**
      * @param null $response
      *
      * @return int|string
@@ -442,15 +461,6 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
          */
         $HPS_KEY = $this->securesubmit_fraud_fail_var;
         //unset($this->session->data[$HPS_KEY]);
-
-        if (!isset($this->session->data[$HPS_KEY])) {
-            $this->session->data[$HPS_KEY] = array(
-                'count'         => 0,
-                'previous'      => '',
-                'lastErrorTime' => 0,
-            );
-        }
-
         $timeOut = (int)$this->session->data[$HPS_KEY]['lastErrorTime'] + $this->securesubmit_fraud_time;
 
         if ($timeOut < time()) { // expired
