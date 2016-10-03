@@ -18,14 +18,14 @@ class ModelExtensionPaymentSecuresubmit extends Model {
 		$method_data = array();
 
 		if ($status) {
-      		$method_data = array(
-        		'code'       => 'securesubmit',
-        		'title'      => $this->language->get('text_title'),
-        		'terms'		 => '',
+			$method_data = array(
+				'code'       => 'securesubmit',
+				'title'      => $this->language->get('text_title'),
+				'terms'		 => '',
 				'sort_order' => $this->config->get('securesubmit_sort_order')
-      		);
-    	}
+			);
+		}
 
-    	return $method_data;
+		return $method_data;
   	}
 }
