@@ -90,7 +90,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text'      => $this->language->get('text_payment'),
-			'href'      => $this->url->link('extension/extension', 'token=' . $this->session->data['token'], 'SSL'),
+			'href' 		=> $this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=payment', true),
 			'separator' => ' :: '
 		);
 
@@ -100,8 +100,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 		);
 
 		$data['action'] = $this->url->link('extension/payment/securesubmit', 'token=' . $this->session->data['token'], 'SSL');
-
-		$data['cancel'] = $this->url->link('extension/extension', 'token=' . $this->session->data['token'], 'SSL');
+		$data['cancel'] = $this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=payment', true);
 
 		if (isset($this->request->post['securesubmit_test_public_key'])) {
 			$data['securesubmit_test_public_key'] = $this->request->post['securesubmit_test_public_key'];
