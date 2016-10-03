@@ -1,4 +1,4 @@
-<?php
+<?php 
 class ControllerExtensionPaymentSecuresubmit extends Controller {
 	private $error = array();
 
