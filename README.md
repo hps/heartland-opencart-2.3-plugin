@@ -1,8 +1,9 @@
-## SecureSubmit OpenCart Payment Gateway
+## SecureSubmit OpenCart 2.3.0.2 Payment Gateway
 
 This extension allows OpenCart to use the Heartland Payment Systems Gateway. All card data is tokenized using Heartland's SecureSubmit product.
 
 ## Installation
+This version of OpenCart introduces backwards compatibility changes 
 
 ## Usage
 Download the contents and extract to the root of your OpenCart install folder.
