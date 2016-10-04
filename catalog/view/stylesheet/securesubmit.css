@@ -1,0 +1,213 @@
+/*Makenzie*/
+.ss-form-control {
+  text-transform:uppercase;
+  border:1px solid #ababab;
+  border-radius:0px;
+  display:-webkit-inline-box;
+  height:40px;
+}
+
+.ss-form-control:focus {
+  text-transform:uppercase;
+  border:1px solid #3989e3;
+  border-radius:0px;
+  box-shadow:none;
+}
+
+.ss-label {
+  text-transform:uppercase;
+}
+
+.form-horizontal .control-label {
+  text-align:left;
+  width:60%;
+  padding-left:none;
+  font-weight:400;
+  margin-bottom:5px;
+  color:#777777;
+}
+
+.form-horizontal .form-group {
+  clear:none;
+}
+
+.form-group {
+  margin-bottom:none;
+}
+
+
+.cvv-icon {
+  background-image:url("../image/cvv1.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:60px 36px;
+}
+
+/*#temp-icon {
+  background-image:url("ss-inputcard-blank@2x.png");
+  background-repeat:no-repeat;
+  background-size:60px 36px;
+  width:60px;
+  height:36px;
+  float:right;
+}
+
+/*IF AMEX///////////////////////////
+.cvv-icon {
+  background-image:url("../image/cvv2.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:125px 30px;
+}
+*/
+
+
+.ss-shield {
+  background-image:url("../image/ss-shield@2x.png");
+  background-size:50px 50px;
+  height:50px;
+  background-repeat:no-repeat;
+  display:inline-flex;
+  width:50px;
+}
+
+.visa-gray {
+  background-image:url("../image/visa.png");
+  background-size:50px 18px;
+  height:18px;
+  background-repeat:no-repeat;
+  margin:15px 5px;
+  display:-webkit-inline-box;
+  width:50px;
+  opacity:0.9;
+}
+
+.amex-gray {
+  background-image:url("../image/amex.jpg");
+  background-size:30px 30px;
+  height:30px;
+  background-repeat:no-repeat;
+  margin:15px 5px;
+  display:-webkit-inline-box;
+  width:30px;
+  opacity:0.9;
+    vertical-align:sub;
+}
+
+.jcb-gray {
+  background-image:url("../image/JCB.png");
+  background-size:40px 30px;
+  height:30px;
+  background-repeat:no-repeat;
+  margin:15px 5px;
+  display:-webkit-inline-box;
+  width:40px;
+  opacity:0.9;
+    vertical-align:sub;
+}
+
+.disc-gray {
+  background-image:url("../image/discover.jpg");
+  background-size:60px 40px;
+  height:40px;
+  background-repeat:no-repeat;
+  margin:15px 5px;
+  display:-webkit-inline-box;
+  width:70px;
+  opacity:0.9;
+    vertical-align:sub;
+}
+
+.card-type-icon {
+  background-image:url("../image/ss-inputcard-blank@2x.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:56px 33px;
+
+}
+
+.mc-gray {
+  background-image:url("../image/mastercard.png");
+  background-size:50px 30px;
+  height:30px;
+  background-repeat:no-repeat;
+  margin:15px 5px;
+  display:-webkit-inline-box;
+  width:50px;
+  opacity:0.9;
+  vertical-align:sub;
+}
+
+.card-type-visa {
+  background-image:url("../image/ss-inputcard-visa@2x.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:81px 48px;
+}
+
+.card-type-mastercard {
+  background-image:url("../image/ss-inputcard-mastercard@2x.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:60px 39px;
+}
+
+.card-type-discover {
+  background-image:url("../image/ss-inputcard-discover@2x.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:93px 44px;
+}
+
+.card-type-jcb {
+  background-image:url("../image/ss-inputcard-jcb@2x.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:61px 37px;
+}
+
+.card-type-amex {
+  background-image:url("../image/ss-inputcard-amex@2x.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:51px 34px;
+}
+
+#payment h6 {
+  display:inline;
+  margin-left:72px;
+  margin-top:20px;
+  vertical-align: -webkit-baseline-middle;
+  color:#555555;
+}
+
+#button-confirm {
+  border-radius:0;
+  background-color:#3989e3;
+  border-color:#2e6da4;
+}
+#button-confirm:hover {
+  background-color:#2e6da4;
+}
+
+.col-md-6 {
+  float:none;
+}
+.col-sm-10 {
+  float:none;
+}
+
+.ss-frame-container > iframe {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .cvv-icon {
+    margin-left:30px;
+    background-position:right;
+  }
+
+  .cvv-label {
+    margin-left:30px;
+  }
+}
