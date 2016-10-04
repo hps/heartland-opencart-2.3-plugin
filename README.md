@@ -3,7 +3,7 @@
 This extension allows OpenCart to use the Heartland Payment Systems Gateway. All card data is tokenized using Heartland's SecureSubmit product.
 
 ## Installation
-This version of OpenCart introduces backwards compatibility changes 
+This version of OpenCart introduces compatibility breaking changes. It is critical that all old plugin files be deleted from the installation directory to prevent errors
 
 ## Usage
 Download the contents and extract to the root of your OpenCart install folder.
