@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php
+=======
+<?php 
+>>>>>>> 186061bdf4d2ff2b5974208e5cdb8d06db968f74
 class ControllerExtensionPaymentSecuresubmit extends Controller {
 	private $error = array();
 

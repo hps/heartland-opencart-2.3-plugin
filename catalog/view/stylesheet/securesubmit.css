@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*Makenzie*/
 .ss-form-control {
   text-transform:uppercase;
@@ -211,3 +212,172 @@
     margin-left:30px;
   }
 }
+=======
+/*Makenzie*/
+.ss-form-control {
+  text-transform:uppercase;
+  border:1px solid #ababab;
+  border-radius:0px;
+  display:-webkit-inline-box;
+  height:40px;
+}
+
+.ss-form-control:focus {
+  text-transform:uppercase;
+  border:1px solid #3989e3;
+  border-radius:0px;
+  box-shadow:none;
+}
+
+.ss-label {
+  text-transform:uppercase;
+}
+
+.form-horizontal .control-label {
+  text-align:left;
+  width:60%;
+  padding-left:none;
+  font-weight:400;
+  margin-bottom:5px;
+  color:#777777;
+}
+
+.form-horizontal .form-group {
+  clear:none;
+}
+
+.form-group {
+  margin-bottom:none;
+}
+
+.ss-shield {
+  background:transparent url("../image/ss-shield@2x.png") no-repeat;
+  height:50px;
+  display:inline-flex;
+  width:390px;
+  background-size:400px 50px;
+  margin:10px 0px;
+}
+
+.card-type-icon {
+  background:transparent url("../image/ss-inputcard-blank@2x.png") no-repeat;
+  background-position:right;
+  background-size:56px 33px;
+  display:-webkit-inline-box;
+
+}
+
+.invalid.card-type-visa {
+  background:transparent url("../image/ss-saved-visa@2x.png") no-repeat bottom right;
+  background-size:70px 76px;
+}
+
+.invalid.card-type-amex {
+  background:transparent url("../image/ss-saved-amex@2x.png")no-repeat bottom right;
+  background-size:70px 76px;}
+
+.invalid.card-type-jcb {
+  background:transparent url("../image/ss-saved-jcb@2x.png") no-repeat bottom right;
+  background-size:70px 76px;}
+
+.invalid.card-type-discover {
+  background:transparent url("../image/../image/ss-saved-discover@2x.png") no-repeat bottom right;
+  background-size:70px 76px;}
+
+.invalid.card-type-mastercard {
+  background:transparent url("../image/ss-saved-mastercard@2x.png") no-repeat bottom right;
+  background-size:70px 76px;
+}
+
+.valid.card-type-visa {
+  background:transparent url("../image/ss-saved-visa@2x.png") no-repeat top right;
+  background-size:70px 76px;}
+
+.valid.card-type-mastercard {
+  background:transparent url("../image/ss-saved-mastercard@2x.png") no-repeat top right;
+  background-size:70px 76px;}
+
+.valid.card-type-discover {
+  background:transparent url("../image/ss-saved-discover@2x.png") no-repeat top right;
+  background-size:70px 76px;}
+
+.valid.card-type-jcb {
+  background:transparent url("../image/../image/ss-saved-jcb@2x.png") no-repeat top right;
+  background-size:70px 76px;}
+
+.valid.card-type-amex {
+  background:transparent url("../image/../image/ss-saved-amex@2x.png") no-repeat top right;
+  background-size:70px 76px;}
+
+.cvv-icon {
+  background-image:url("../image/cvv1.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:60px 36px;
+}
+
+/*#temp-icon {
+  background-image:url("ss-inputcard-blank@2x.png");
+  background-repeat:no-repeat;
+  background-size:60px 36px;
+  width:60px;
+  height:36px;
+  float:right;
+}
+
+/*IF AMEX///////////////////////////
+.cvv-icon {
+  background-image:url("../image/cvv2.png");
+  background-repeat:no-repeat;
+  background-position:right;
+  background-size:125px 30px;
+}
+*/
+
+#payment h6 {
+  display:inline;
+  margin-left:72px;
+  margin-top:20px;
+  vertical-align: -webkit-baseline-middle;
+  color:#555555;
+}
+
+#button-confirm {
+  border-radius:0;
+  background-color:#3989e3;
+  border-color:#2e6da4;
+}
+#button-confirm:hover {
+  background-color:#2e6da4;
+}
+
+.col-md-6 {
+  float:none;
+}
+.col-sm-10 {
+  float:none;
+}
+
+.ss-frame-container > iframe {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .cvv-icon {
+    margin-left:30px;
+    background-position:right;
+  }
+
+  .cvv-label {
+    margin-left:30px;
+  }
+}
+
+@media (max-width: 425px) {
+  .ss-shield {
+  height:40px;
+  width:310px;
+  background-size:310px 40px;
+}
+}
+>>>>>>> 186061bdf4d2ff2b5974208e5cdb8d06db968f74
