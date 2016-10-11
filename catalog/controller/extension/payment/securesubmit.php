@@ -223,6 +223,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
      */
     private function chargeCreditCard($amt, $curCode, $cardHolder)
     {
+        $amt = round(preg_replace('/[^0-9\.]/', '', $amt),2);
 
         if ($this->sessionVar('count') > $this->securesubmit_fraud_fail) {
             // spoof processing time to not alert the bot that something unexpected is happening
@@ -461,6 +462,9 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
          */
         $HPS_KEY = $this->securesubmit_fraud_fail_var;
         //unset($this->session->data[$HPS_KEY]);
+        if (!key_exists('lastErrorTime',$this->session->data[$HPS_KEY])){
+            $this->session->data[$HPS_KEY]['lastErrorTime'] = 0;
+        }
         $timeOut = (int)$this->session->data[$HPS_KEY]['lastErrorTime'] + $this->securesubmit_fraud_time;
 
         if ($timeOut < time()) { // expired
