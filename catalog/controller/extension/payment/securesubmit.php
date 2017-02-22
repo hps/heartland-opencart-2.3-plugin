@@ -461,6 +461,12 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
          */
         $HPS_KEY = $this->securesubmit_fraud_fail_var;
         //unset($this->session->data[$HPS_KEY]);
+        if (!is_array($this->session->data)){
+            $this->session->data = array();
+        }
+         if (!key_exists($HPS_KEY,$this->session->data) || !is_array($this->session->data[$HPS_KEY])){
+             $this->session->data[$HPS_KEY] = array();
+         }
         if (!key_exists('lastErrorTime',$this->session->data[$HPS_KEY])){
             $this->session->data[$HPS_KEY]['lastErrorTime'] = 0;
         }
