@@ -459,6 +459,9 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
          * $this->session->data[$this->securesubmit_fraud_fail_var]['previous']
          * $this->session->data[$this->securesubmit_fraud_fail_var]['lastErrorTime']
          */
+        if(null === $this->securesubmit_fraud_fail_var){
+            $this->securesubmit_fraud_fail_var = "HeartlandHPS_FailCount_" . $this->getIP();
+        }
         $HPS_KEY = $this->securesubmit_fraud_fail_var;
         //unset($this->session->data[$HPS_KEY]);
         if (!is_array($this->session->data)){
