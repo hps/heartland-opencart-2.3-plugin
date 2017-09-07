@@ -43,7 +43,6 @@
         <div class="iframeholder" id="iframesCardCvv"></div>
     </div>
 
-    <input type="submit" class="btn btn-primary" value="Submit" />
 
 </form>
 
@@ -58,15 +57,15 @@
 <!-- The Integration Code -->
 <script type="text/javascript">
     var secureSubmitKey = '<?php echo $publicKey ?>';
-    
+
     //call method untill Heartland loaded
     var interval = setInterval(loadIframeTokenization, 100);
 
     //method to load iframe
-    function loadIframeTokenization () {
+    function loadIframeTokenization() {
         'use strict';
         //check whether Heartland is loaded
-        if (typeof Heartland == 'object'){
+        if (typeof Heartland == 'object') {
             clearInterval(interval);
         } else {
             return;
@@ -161,17 +160,15 @@
                 }
             },
             // Callback when a token is received from the service
-            onTokenSuccess: function (resp) {
-                alert('Here is a single-use token: ' + resp.token_value);
-            },
+            onTokenSuccess: secureSubmitResponseHandler,
             // Callback when an error is received from the service
-            onTokenError: function (resp) {
-                alert('There was an error: ' + resp.error.message);
-            }
+            onTokenError: secureSubmitResponseHandler
         });
 
         // Attach a handler to interrupt the form submission
-        Heartland.Events.addHandler(document.getElementById('iframes'), 'submit', function (e) {
+        $("#button-confirm").click(function (e) {
+        //Heartland.Events.addHandler(document.getElementById('button-confirm'), 'submit', function (e) {
+            console.log('Submit');
             // Prevent the form from continuing to the `action` address
             e.preventDefault();
             // Tell the iframes to tokenize the data
@@ -185,6 +182,48 @@
                     );
         });
 
-    };
+        function secureSubmitResponseHandler(response) {
+            console.log(response);
+            var bodyTag = $('body').first();
+            if (response.message) {
+                alert(response.message);
+                $('#button-confirm').button('reset');
+            } else {
+                bodyTag.append("<input type='hidden' class='securesubmitToken' name='securesubmitToken' value='" + response.token_value + "'/>");
+                form_submit(response);
+            }
+        }
+
+        function form_submit(response) {
+            console.log(response);
+            var ret = [];
+            $(':input').each(function (index) {
+                ret.push(encodeURIComponent(this.name) + "=" + encodeURIComponent($(this).val()));
+            });
+
+            $.ajax({
+                url: 'index.php?route=extension/payment/securesubmit/send',
+                type: 'post',
+                data: ret.join("&").replace(/%20/g, "+"),
+                dataType: 'json',
+                cache: false,
+                beforeSend: function () {
+                    $('#button-confirm').button('loading');
+                },
+                complete: function () {
+                    $('#button-confirm').button('reset');
+                },
+                success: function (json) {
+                    if (json['error']) {
+                        alert(json['error']);
+                    }
+                    if (json['redirect']) {
+                        window.location = json['redirect'];
+                    }
+                }
+            });
+        }
+
+    }
+    ;
 </script>
-<!-- <script type="text/javascript" src="catalog/view/javascript/securesubmittoken.js"></script> -->
