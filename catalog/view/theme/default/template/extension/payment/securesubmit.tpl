@@ -167,10 +167,9 @@
 
         // Attach a handler to interrupt the form submission
         $("#button-confirm").click(function (e) {
-        //Heartland.Events.addHandler(document.getElementById('button-confirm'), 'submit', function (e) {
-            console.log('Submit');
             // Prevent the form from continuing to the `action` address
             e.preventDefault();
+            $(this).button('loading');
             // Tell the iframes to tokenize the data
             hps.Messages.post(
                     {
@@ -183,11 +182,11 @@
         });
 
         function secureSubmitResponseHandler(response) {
-            console.log(response);
             var bodyTag = $('body').first();
-            if (response.message) {
-                alert(response.message);
+            if (response.error !== undefined && response.error.message !== undefined) {
+                alert(response.error.message);
                 $('#button-confirm').button('reset');
+                return false;
             } else {
                 bodyTag.append("<input type='hidden' class='securesubmitToken' name='securesubmitToken' value='" + response.token_value + "'/>");
                 form_submit(response);
@@ -195,7 +194,6 @@
         }
 
         function form_submit(response) {
-            console.log(response);
             var ret = [];
             $(':input').each(function (index) {
                 ret.push(encodeURIComponent(this.name) + "=" + encodeURIComponent($(this).val()));
