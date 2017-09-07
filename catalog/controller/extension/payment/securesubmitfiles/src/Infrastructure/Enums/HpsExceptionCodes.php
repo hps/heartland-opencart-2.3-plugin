@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class HpsExceptionCodes
+ */
 abstract class HpsExceptionCodes
 {
     // general codes
@@ -12,6 +15,10 @@ abstract class HpsExceptionCodes
     const INVALID_CURRENCY   = 4;
     const INVALID_DATE       = 5;
     const MISSING_CHECK_NAME = 28;
+    const INVALID_PHONE_NUMBER  = 33;
+    const INVALID_ZIP_CODE  = 34;
+    const INVALID_EMAIL_ADDRESS  = 35;
+    const INVALID_INPUT_LENGTH  = 36;
 
     // gateway codes
     const UNKNOWN_GATEWAY_ERROR          = 6;
