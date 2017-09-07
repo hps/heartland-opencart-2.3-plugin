@@ -58,11 +58,21 @@
 <!-- The Integration Code -->
 <script type="text/javascript">
     var secureSubmitKey = '<?php echo $publicKey ?>';
-    'use strict';
-    setTimeout(function () {
+    
+    //call method untill Heartland loaded
+    var interval = setInterval(loadIframeTokenization, 100);
+
+    //method to load iframe
+    function loadIframeTokenization () {
         'use strict';
+        //check whether Heartland is loaded
+        if (typeof Heartland == 'object'){
+            clearInterval(interval);
+        } else {
+            return;
+        }
         // Create a new `HPS` object with the necessary configuration
-        var hps = new window.Heartland.HPS({
+        var hps = new Heartland.HPS({
             publicKey: secureSubmitKey,
             type: 'iframe',
             // Configure the iframe fields to tell the library where
@@ -161,7 +171,7 @@
         });
 
         // Attach a handler to interrupt the form submission
-        window.Heartland.Events.addHandler(document.getElementById('iframes'), 'submit', function (e) {
+        Heartland.Events.addHandler(document.getElementById('iframes'), 'submit', function (e) {
             // Prevent the form from continuing to the `action` address
             e.preventDefault();
             // Tell the iframes to tokenize the data
@@ -175,6 +185,6 @@
                     );
         });
 
-    }, 1000);
+    };
 </script>
 <!-- <script type="text/javascript" src="catalog/view/javascript/securesubmittoken.js"></script> -->
