@@ -60,6 +60,7 @@
 
     //call method untill Heartland loaded
     var interval = setInterval(loadIframeTokenization, 100);
+    var attempts = 0;
 
     //method to load iframe
     function loadIframeTokenization() {
@@ -68,6 +69,11 @@
         if (typeof Heartland == 'object') {
             clearInterval(interval);
         } else {
+            attempts ++;
+            if(attempts > 20){
+                alert('Problem loading payment Method! Try again later.');
+                clearInterval(interval);
+            }
             return;
         }
         // Create a new `HPS` object with the necessary configuration
