@@ -1,4 +1,15 @@
-/*Makenzie*/
+label {
+  text-transform:uppercase;
+}
+.form-group:nth-child(2),
+.form-group:nth-child(3) {
+  width:49%;
+  display:inline-block;
+}
+.form-group:nth-child(3) {
+  float:right;
+}
+
 .ss-form-control {
   text-transform:uppercase;
   border:1px solid #ababab;
@@ -37,10 +48,10 @@
 
 .ss-shield {
   background:transparent url("../image/ss-shield@2x.png") no-repeat;
-  height:50px;
+  height:40px;
   display:inline-flex;
   width:390px;
-  background-size:400px 50px;
+  background-size:330px 40px;
   margin:10px 0px;
 }
 
@@ -163,5 +174,13 @@
   height:40px;
   width:310px;
   background-size:310px 40px;
+}
+.form-group:nth-child(2),
+.form-group:nth-child(3) {
+  width:100%;
+  display:block;
+}
+.form-group:nth-child(3) {
+  float:none;
 }
 }

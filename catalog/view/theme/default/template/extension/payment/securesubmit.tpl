@@ -105,7 +105,7 @@
                     'box-sizing': 'border-box',
                     'display': 'block',
                     'width': '100%',
-                    'height': '34px',
+                    'height': '45px',
                     'padding': '6px 12px',
                     'font-size': '14px',
                     'line-height': '1.42857143',
@@ -113,7 +113,7 @@
                     'background-color': '#fff',
                     'background-image': 'none',
                     'border': '1px solid #ccc',
-                    'border-radius': '4px',
+                    'border-radius': '0px',
                     '-webkit-box-shadow': 'inset 0 1px 1px rgba(0,0,0,.075)',
                     'box-shadow': 'inset 0 1px 1px rgba(0,0,0,.075)',
                     '-webkit-transition': 'border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s',
@@ -163,7 +163,101 @@
                     'text-decoration': 'none',
                     'outline': '5px auto -webkit-focus-ring-color',
                     'outline-offset': '-2px'
-                }
+                },
+                'input[name=cardNumber]': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/ss-inputcard-blank@2x.png")',
+                  'background-position':'right',
+                  'background-size':'56px 33px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat'
+                },
+                'input[name=cardCvv]': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/cvv1.png")',
+                  'background-position':'right',
+                  'background-size':'56px 33px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat'
+                },
+                '.invalid.card-type-visa': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/ss-sprite.png")',
+                  'background-position':'right',
+                  'background-size':'86px 463px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat',
+                  'background-position-y':'-47px'
+                },
+                '.valid.card-type-visa': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/ss-sprite.png")',
+                  'background-position':'right',
+                  'background-size':'85px 463px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat',
+                  'background-position-y':'-1px'
+                },
+                '.invalid.card-type-discover': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/ss-sprite.png")',
+                  'background-position':'right',
+                  'background-size':'85px 463px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat',
+                  'background-position-y':'-422px'
+                },
+                '.valid.card-type-discover': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/ss-sprite.png")',
+                  'background-position':'right',
+                  'background-size':'85px 463px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat',
+                  'background-position-y':'-372px'
+                },
+                '.invalid.card-type-jcb': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/ss-sprite.png")',
+                  'background-position':'right',
+                  'background-size':'85px 463px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat',
+                  'background-position-y':'-325px'
+                },
+                '.valid.card-type-jcb': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/ss-sprite.png")',
+                  'background-position':'right',
+                  'background-size':'85px 463px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat',
+                  'background-position-y':'-281px'
+                },
+                '.invalid.card-type-amex': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/ss-sprite.png")',
+                  'background-position':'right',
+                  'background-size':'85px 463px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat',
+                  'background-position-y':'-237px'
+                },
+                '.valid.card-type-amex': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/ss-sprite.png")',
+                  'background-position':'right',
+                  'background-size':'85px 463px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat',
+                  'background-position-y':'-189px'
+                },
+                '.invalid.card-type-mastercard': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/ss-sprite.png")',
+                  'background-position':'right',
+                  'background-size':'85px 463px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat',
+                  'background-position-y':'-142px'
+                },
+                '.valid.card-type-mastercard': {
+                  'background-image':'url("<?php echo $base;?>catalog/view/image/ss-sprite.png")',
+                  'background-position':'right',
+                  'background-size':'85px 463px',
+                  'display':'-webkit-inline-box',
+                  'background-repeat':'no-repeat',
+                  'background-position-y':'-98px'
+                },
             },
             // Callback when a token is received from the service
             onTokenSuccess: secureSubmitResponseHandler,
