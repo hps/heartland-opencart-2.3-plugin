@@ -1,5 +1,14 @@
 <link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/securesubmit.css">
 
+<?php if ($securesubmit_use_iframes): // help prevent flash of no fields ?>
+  <link rel="dns-prefetch" href="https://hps.github.io" />
+  <link rel="prefetch" href="https://hps.github.io" />
+  <link rel="dns-prefetch" href="https://api.heartlandportico.com" />
+  <link rel="prefetch" href="https://api.heartlandportico.com" />
+<?php endif; ?>
+
+<link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/securesubmit.css">
+
 <!-- make iframes styled like other form -->
 <style type="text/css">
     #iframes iframe{
@@ -56,26 +65,27 @@
 <script type="text/javascript" src="https://api2.heartlandportico.com/SecureSubmit.v1/token/2.1/securesubmit.js"></script>
 <!-- The Integration Code -->
 <script type="text/javascript">
+
+	function loadjsfile(filename, filetype, callback) {
+		if (filetype === "js") { //if filename is a external JavaScript file
+		  var fileref = document.createElement('script');
+		  fileref.setAttribute("type","text/javascript");
+		  fileref.setAttribute("src", filename);
+		}
+		if (typeof fileref !== "undefined" && typeof callback !== 'undefined') {
+		  fileref.setAttribute('onload', callback);
+		}
+		if (typeof fileref !== "undefined") {
+		  document.getElementsByTagName("head")[0].appendChild(fileref);
+		}
+	  }
+	  //dynamically load and add this .js file
+	  loadjsfile("https://api.heartlandportico.com/SecureSubmit.v1/token/2.1/securesubmit.js", "js", 'loadIframeTokenization();');
+
     var secureSubmitKey = '<?php echo $publicKey ?>';
 
-    //call method untill Heartland loaded
-    var interval = setInterval(loadIframeTokenization, 100);
-    var attempts = 0;
-
     //method to load iframe
-    function loadIframeTokenization() {
-        'use strict';
-        //check whether Heartland is loaded
-        if (typeof Heartland == 'object') {
-            clearInterval(interval);
-        } else {
-            attempts ++;
-            if(attempts > 20){
-                alert('Problem loading payment Method! Try again later.');
-                clearInterval(interval);
-            }
-            return;
-        }
+    function loadIframeTokenization() {        
         // Create a new `HPS` object with the necessary configuration
         var hps = new Heartland.HPS({
             publicKey: secureSubmitKey,

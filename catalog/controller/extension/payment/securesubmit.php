@@ -117,6 +117,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
         //$this->document->addScript('catalog/view/javascript/secure.submit-1.0.2.js');
         $this->load->language('extension/payment/securesubmit');
         $data['publicKey'] = $this->get_secure_submit_public_key();
+        $data['securesubmit_use_iframes'] = $this->config->get('securesubmit_use_iframes');
         $data['text_credit_card'] = $this->language->get('text_credit_card');
         $data['text_wait'] = $this->language->get('text_wait');
 

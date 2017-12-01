@@ -29,6 +29,7 @@ $_['entry_order_status'] = 'Order Status';
 $_['entry_geo_zone']     = 'Geo Zone';
 $_['entry_status']       = 'Status';
 $_['entry_sort_order']   = 'Sort Order';
+$_['entry_use_iframes']  = 'Host payment fields on Heartland\'s servers';
 // Fraud options
 $_['entry_fraud_enable'] = 'Enable Fraud Options';
 $_['entry_fraud_message']= 'Display Message';
