@@ -161,14 +161,14 @@
     background-color:#2e6da4;
 }
 
-.col-md-6 {
+#hpsPaymentForm .col-md-6 {
     float:none;
 }
-.col-sm-10 {
+#hpsPaymentForm .col-sm-10 {
     float:none;
 }
 
-.ss-frame-container > iframe {
+#hpsPaymentForm .ss-frame-container > iframe {
     width: 100%;
 }
 
