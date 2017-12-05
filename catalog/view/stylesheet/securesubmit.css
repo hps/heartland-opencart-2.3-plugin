@@ -1,115 +1,129 @@
-label {
-  text-transform:uppercase;
+#hpsPaymentForm iframe{
+    float:left;
+    width:100%;
 }
-.form-group:nth-child(2),
-.form-group:nth-child(3) {
-  width:49%;
-  display:inline-block;
-}
-.form-group:nth-child(3) {
-  float:right;
-}
-
-.ss-form-control {
-  text-transform:uppercase;
-  border:1px solid #ababab;
-  border-radius:0px;
-  display:-webkit-inline-box;
-  height:40px;
+#hpsPaymentForm .iframeholder:after,
+#hpsPaymentForm .iframeholder::after{
+    content:'';
+    display:block;
+    width:100%;
+    height:0px;
+    clear:both;
+    position:relative;
 }
 
-.ss-form-control:focus {
-  text-transform:uppercase;
-  border:1px solid #3989e3;
-  border-radius:0px;
-  box-shadow:none;
+#hpsPaymentForm label {
+    text-transform:uppercase;
+}
+#hpsPaymentForm .form-group:nth-child(2),
+#hpsPaymentForm .form-group:nth-child(3) {
+    width:49%;
+    display:inline-block;
+}
+#hpsPaymentForm .form-group:nth-child(3) {
+    float:right;
 }
 
-.ss-label {
-  text-transform:uppercase;
+#hpsPaymentForm .ss-form-control {
+    text-transform:uppercase;
+    border:1px solid #ababab;
+    border-radius:0px;
+    display:-webkit-inline-box;
+    height:40px;
 }
 
-.form-horizontal .control-label {
-  text-align:left;
-  width:60%;
-  padding-left:none;
-  font-weight:400;
-  margin-bottom:5px;
-  color:#777777;
+#hpsPaymentForm .ss-form-control:focus {
+    text-transform:uppercase;
+    border:1px solid #3989e3;
+    border-radius:0px;
+    box-shadow:none;
 }
 
-.form-horizontal .form-group {
-  clear:none;
+#hpsPaymentForm .ss-label {
+    text-transform:uppercase;
 }
 
-.form-group {
-  margin-bottom:none;
+#hpsPaymentForm .form-horizontal .control-label {
+    text-align:left;
+    width:60%;
+    padding-left:none;
+    font-weight:400;
+    margin-bottom:5px;
+    color:#777777;
 }
 
-.ss-shield {
-  background:transparent url("../image/ss-shield@2x.png") no-repeat;
-  height:40px;
-  display:inline-flex;
-  width:390px;
-  background-size:330px 40px;
-  margin:10px 0px;
+#hpsPaymentForm .form-horizontal .form-group {
+    clear:none;
 }
 
-.card-type-icon {
-  background:transparent url("../image/ss-inputcard-blank@2x.png") no-repeat;
-  background-position:right;
-  background-size:56px 33px;
-  display:-webkit-inline-box;
+#hpsPaymentForm .form-group {
+    margin-bottom:none;
+}
+
+#hpsPaymentForm .ss-shield {
+    background:transparent url("../image/ss-shield@2x.png") no-repeat;
+    height:40px;
+    display:inline-flex;
+    width:390px;
+    background-size:330px 40px;
+    margin:10px 0px;
+}
+
+#hpsPaymentForm .card-type-icon {
+    background:transparent url("../image/ss-inputcard-blank@2x.png") no-repeat;
+    background-position:right;
+    background-size:56px 33px;
+    display:-webkit-inline-box;
 
 }
 
-.invalid.card-type-visa {
-  background:transparent url("../image/ss-saved-visa@2x.png") no-repeat bottom right;
-  background-size:70px 76px;
+#hpsPaymentForm .invalid.card-type-visa {
+    background:transparent url("../image/ss-saved-visa@2x.png") no-repeat bottom right;
+    background-size:70px 76px;
 }
 
-.invalid.card-type-amex {
-  background:transparent url("../image/ss-saved-amex@2x.png")no-repeat bottom right;
-  background-size:70px 76px;}
+#hpsPaymentForm .invalid.card-type-amex {
+    background:transparent url("../image/ss-saved-amex@2x.png")no-repeat bottom right;
+    background-size:70px 76px;}
 
-.invalid.card-type-jcb {
-  background:transparent url("../image/ss-saved-jcb@2x.png") no-repeat bottom right;
-  background-size:70px 76px;}
+#hpsPaymentForm .invalid.card-type-jcb {
+    background:transparent url("../image/ss-saved-jcb@2x.png") no-repeat bottom right;
+    background-size:70px 76px;}
 
-.invalid.card-type-discover {
-  background:transparent url("../image/../image/ss-saved-discover@2x.png") no-repeat bottom right;
-  background-size:70px 76px;}
+#hpsPaymentForm .invalid.card-type-discover {
+    background:transparent url("../image/../image/ss-saved-discover@2x.png") no-repeat bottom right;
+    background-size:70px 76px;}
 
-.invalid.card-type-mastercard {
-  background:transparent url("../image/ss-saved-mastercard@2x.png") no-repeat bottom right;
-  background-size:70px 76px;
+#hpsPaymentForm .invalid.card-type-mastercard {
+    background:transparent url("../image/ss-saved-mastercard@2x.png") no-repeat bottom right;
+    background-size:70px 76px;
 }
 
-.valid.card-type-visa {
-  background:transparent url("../image/ss-saved-visa@2x.png") no-repeat top right;
-  background-size:70px 76px;}
+#hpsPaymentForm .valid.card-type-visa {
+    background:transparent url("../image/ss-saved-visa@2x.png") no-repeat top right;
+    background-size:70px 76px;}
 
-.valid.card-type-mastercard {
-  background:transparent url("../image/ss-saved-mastercard@2x.png") no-repeat top right;
-  background-size:70px 76px;}
+#hpsPaymentForm .valid.card-type-mastercard {
+    background:transparent url("../image/ss-saved-mastercard@2x.png") no-repeat top right;
+    background-size:70px 76px;}
 
-.valid.card-type-discover {
-  background:transparent url("../image/ss-saved-discover@2x.png") no-repeat top right;
-  background-size:70px 76px;}
+#hpsPaymentForm .valid.card-type-discover {
+    background:transparent url("../image/ss-saved-discover@2x.png") no-repeat top right;
+    background-size:70px 76px;}
 
 .valid.card-type-jcb {
-  background:transparent url("../image/../image/ss-saved-jcb@2x.png") no-repeat top right;
-  background-size:70px 76px;}
+    background:transparent url("../image/../image/ss-saved-jcb@2x.png") no-repeat top right;
+    background-size:70px 76px;}
 
-.valid.card-type-amex {
-  background:transparent url("../image/../image/ss-saved-amex@2x.png") no-repeat top right;
-  background-size:70px 76px;}
+#hpsPaymentForm .valid.card-type-amex {
+    background:transparent url("../image/../image/ss-saved-amex@2x.png") no-repeat top right;
+    background-size:70px 76px;}
 
-.cvv-icon {
-  background-image:url("../image/cvv1.png");
-  background-repeat:no-repeat;
-  background-position:right;
-  background-size:60px 36px;
+#hpsPaymentForm .cvv-icon {
+    background-image:url("../image/cvv1.png");
+    background-repeat:no-repeat;
+    background-position:right;
+    background-size:60px 36px;
 }
 
 /*#temp-icon {
@@ -131,56 +145,56 @@ label {
 */
 
 #payment h6 {
-  display:inline;
-  margin-left:72px;
-  margin-top:20px;
-  vertical-align: -webkit-baseline-middle;
-  color:#555555;
+    display:inline;
+    margin-left:72px;
+    margin-top:20px;
+    vertical-align: -webkit-baseline-middle;
+    color:#555555;
 }
 
 #button-confirm {
-  border-radius:0;
-  background-color:#3989e3;
-  border-color:#2e6da4;
+    border-radius:0;
+    background-color:#3989e3;
+    border-color:#2e6da4;
 }
 #button-confirm:hover {
-  background-color:#2e6da4;
+    background-color:#2e6da4;
 }
 
 .col-md-6 {
-  float:none;
+    float:none;
 }
 .col-sm-10 {
-  float:none;
+    float:none;
 }
 
 .ss-frame-container > iframe {
-  width: 100%;
+    width: 100%;
 }
 
 @media (min-width: 992px) {
-  .cvv-icon {
-    margin-left:30px;
-    background-position:right;
-  }
+    #hpsPaymentForm .cvv-icon {
+        margin-left:30px;
+        background-position:right;
+    }
 
-  .cvv-label {
-    margin-left:30px;
-  }
+    #hpsPaymentForm .cvv-label {
+        margin-left:30px;
+    }
 }
 
 @media (max-width: 425px) {
-  .ss-shield {
-  height:40px;
-  width:310px;
-  background-size:310px 40px;
-}
-.form-group:nth-child(2),
-.form-group:nth-child(3) {
-  width:100%;
-  display:block;
-}
-.form-group:nth-child(3) {
-  float:none;
-}
+    #hpsPaymentForm .ss-shield {
+        height:40px;
+        width:310px;
+        background-size:310px 40px;
+    }
+    #hpsPaymentForm .form-group:nth-child(2),
+    #hpsPaymentForm .form-group:nth-child(3) {
+        width:100%;
+        display:block;
+    }
+    #hpsPaymentForm .form-group:nth-child(3) {
+        float:none;
+    }
 }
