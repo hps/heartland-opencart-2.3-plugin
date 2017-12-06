@@ -209,3 +209,4 @@ if (!defined('HPS_SDK_LOADED')) {
     // Cleanup
     ini_set('include_path', $originalPath);
 }
+
