@@ -117,6 +117,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
         //$this->document->addScript('catalog/view/javascript/secure.submit-1.0.2.js');
         $this->load->language('extension/payment/securesubmit');
         $data['publicKey'] = $this->get_secure_submit_public_key();
+        $data['securesubmit_use_iframes'] = $this->config->get('securesubmit_use_iframes');
         $data['text_credit_card'] = $this->language->get('text_credit_card');
         $data['text_wait'] = $this->language->get('text_wait');
 
@@ -147,14 +148,14 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
             );
         }
         //echo __FILE__;
-        /*if (isset($this->request->server['HTTPS'])
+        if (isset($this->request->server['HTTPS'])
             && (($this->request->server['HTTPS'] == 'on')
                 || ($this->request->server['HTTPS'] == '1'))
         ) {
-            $data['base_url'] = $this->config->get('config_ssl');
+            $data['base'] = $this->config->get('config_ssl');
         } else {
-            $data['base_url'] = $this->config->get('config_url');
-        }*/
+            $data['base'] = $this->config->get('config_url');
+        }
         if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/securesubmit.tpl')) {
             return $this->load->view($this->config->get('config_template') . '/template/extension/payment/securesubmit.tpl', $data);
         } else {

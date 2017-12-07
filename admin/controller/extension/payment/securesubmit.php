@@ -46,6 +46,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 		$data['entry_fraud_message'] = $this->language->get('entry_fraud_message');
 		$data['entry_fraud_fail'] = $this->language->get('entry_fraud_fail');
 		$data['entry_fraud_time'] = $this->language->get('entry_fraud_time');
+		$data['entry_use_iframes'] = $this->language->get('entry_use_iframes');
 
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
@@ -142,6 +143,12 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 			$data['securesubmit_total'] = $this->request->post['securesubmit_total'];
 		} else {
 			$data['securesubmit_total'] = $this->config->get('securesubmit_total');
+		}
+		
+		if (isset($this->request->post['securesubmit_use_iframes'])) {
+			$data['securesubmit_use_iframes'] = $this->request->post['securesubmit_use_iframes'];
+		} else {
+			$data['securesubmit_use_iframes'] = $this->config->get('securesubmit_use_iframes');
 		}
 
 		if (isset($this->request->post['securesubmit_order_status_id'])) {
