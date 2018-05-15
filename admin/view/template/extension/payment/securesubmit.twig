@@ -1,0 +1,186 @@
+{{ header }}{{ column_left }}
+<div id="content" class="securesubmit-v3">
+    <div class="page-header">
+        <div class="container-fluid">
+            <div class="pull-right">
+                <button type="submit" form="secure-submit-form" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+                <!-- <div class="buttons"><a onclick="$('#form').submit();" class="button">{{ button_save }}</a></div> -->
+                <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a>
+            </div>
+            <h1><!-- <img src="view/image/payment.png" alt="" /> -->{{ heading_title }}</h1>
+            <ul class="breadcrumb">
+                {% for breadcrumb in breadcrumbs %}
+                <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid">
+        {% if error_warning %}
+        <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+        {% endif %}
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-pencil"></i>{{ text_edit }}</h3>
+        </div>
+        <div class="panel-body">
+            <form action="{{ action }}" method="post" enctype="multipart/form-data" id="secure-submit-form" class="form-horizontal">
+                <input type="hidden" name="payment_securesubmit_module[1][position]" value="content_top" />
+                <input type="hidden" name="payment_securesubmit_module[1][layout_id]" value="7" />
+                <input type="hidden" name="payment_securesubmit_module[1][status]" value="1" />
+                <input type="hidden" name="payment_securesubmit_module[1][sort_order]" value="0" />
+
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-test-public-key">{{ entry_test_public_key }}</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="payment_securesubmit_test_public_key" value="{{ payment_securesubmit_test_public_key }}" placeholder="{{ entry_test_public_key }}" id="input-test-public-key" class="form-control"/>
+                        {% if error_test_public_key %}
+                        <span class="error">{{ error_test_public_key }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-test-private-key">{{ entry_test_private_key }}</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="payment_securesubmit_test_private_key" value="{{ payment_securesubmit_test_private_key }}" placeholder="{{ entry_test_private_key }}" id="input-test-private-key" class="form-control"/>
+                        {% if error_test_private_key %}
+                        <span class="error">{{ error_test_private_key }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-live-public-key">{{ entry_live_public_key }}</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="payment_securesubmit_live_public_key" value="{{ payment_securesubmit_live_public_key }}" placeholder="{{ entry_live_public_key }}" id="input-live-public-key" class="form-control"/>
+                        {% if error_live_public_key %}
+                        <span class="error">{{ error_live_public_key }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-live-private-key">{{ entry_live_private_key }}</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="payment_securesubmit_live_private_key" value="{{ payment_securesubmit_live_private_key }}" placeholder="{{ entry_live_private_key }}" id="input-live-private-key" class="form-control"/>
+                        {% if error_live_private_key %}
+                        <span class="error">{{ error_live_private_key }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-mode">{{ entry_mode }}</label>
+                    <div class="col-sm-10">
+                        <select name="payment_securesubmit_mode" id="input-mode" class="form-control">
+                            {% if payment_securesubmit_mode == 'test' %}
+                            <option value="test" selected="selected">{{ text_test }}</option>
+                            {% else %}
+                            <option value="test">{{ text_test }}</option>
+                            {% endif %}
+                            {% if payment_securesubmit_mode == 'live' %}
+                            <option value="live" selected="selected">{{ text_live }}</option>
+                            {% else %}
+                            <option value="live">{{ text_live }}</option>
+                            {% endif %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="auth">{{ entry_method }}</label>
+                    <div class="col-sm-10">
+                        <select name="payment_securesubmit_method" id="auth" class="form-control">
+                            {% if payment_securesubmit_method == 'authorization' %}
+                            <option value="authorization" selected="selected">{{ text_authorization }}</option>
+                            {% else %}
+                            <option value="authorization">{{ text_authorization }}</option>
+                            {% endif %}
+                            {% if payment_securesubmit_method == 'capture' %}
+                            <option value="capture" selected="selected">{{ text_capture }}</option>
+                            {% else %}
+                            <option value="capture">{{ text_capture }}</option>
+                            {% endif %}
+                        </select>
+                    </div>
+                </div>
+                <fieldset>
+                    <legend>{{ text_checkout_settings }}</legend>
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label" style="text-align: left">{{ text_total_helper }}</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="entry-total">{{ entry_total }}</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="payment_securesubmit_total" value="{{ payment_securesubmit_total }}" placeholder="{{ entry_total }}" id="entry-total" class="form-control"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                      <label class="col-sm-2 control-label" for="status">{{ entry_use_iframes }}</label>
+                      <div class="col-sm-10">
+                        <select name="payment_securesubmit_use_iframes" id="status" class="form-control">
+                          {% if payment_securesubmit_use_iframes %}
+                            <option value="1" selected="selected">{{ text_enabled }}</option>
+                            <option value="0">{{ text_disabled }}</option>
+                          {% else %}
+                            <option value="1">{{ text_enabled }}</option>
+                            <option value="0" selected="selected">{{ text_disabled }}</option>
+                          {% endif %}
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="order-status">{{ entry_order_status }}</label>
+                        <div class="col-sm-10">
+                            <select name="payment_securesubmit_order_status_id" id="order-status" class="form-control">
+                                {% for order_status in order_statuses %}            
+								{% if order_status.order_status_id == payment_securesubmit_order_status_id %}
+                                <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+                                {% else %}
+                                <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="geo-zone">{{ entry_geo_zone }}</label>
+                      <div class="col-sm-10">
+                        <select name="payment_securesubmit_geo_zone_id" id="geo-zone" class="form-control">
+                        <option value="0">{{ text_all_zones }}</option>
+						{% for geo_zone in geo_zones %}
+						{% if geo_zone.geo_zone_id == payment_securesubmit_geo_zone_id %}
+                        <option value="{{ geo_zone.geo_zone_id }}" selected="selected">{{ geo_zone.name }}</option>
+                        {% else %}
+                        <option value="{{ geo_zone.geo_zone_id }}">{{ geo_zone.name }}</option>
+                        {% endif %}
+						{% endfor %}
+                    </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="status">{{ entry_status }}</label>
+                      <div class="col-sm-10">
+                        <select name="payment_securesubmit_status" id="status" class="form-control">
+                        {% if payment_securesubmit_status %}
+                        <option value="1" selected="selected">{{ text_enabled }}</option>
+                        <option value="0">{{ text_disabled }}</option>
+                        {% else %}
+                        <option value="1">{{ text_enabled }}</option>
+                        <option value="0" selected="selected">{{ text_disabled }}</option>
+                        {% endif %}
+                    </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label" for="sort-order">{{ entry_sort_order }}</label>
+                      <div class="col-sm-10">
+                        <input type="text" name="payment_securesubmit_sort_order" value="{{ payment_securesubmit_sort_order }}" placeholder="{{ entry_sort_order }}" id="sort-order" class="form-control" />
+                      </div>
+                    </div>
+                </fieldset>
+
+            </form>
+        </div>
+    </div>
+</div>
+{{ footer }} 
