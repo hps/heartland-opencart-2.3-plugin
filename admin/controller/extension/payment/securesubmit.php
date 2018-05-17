@@ -8,13 +8,24 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->load->model('setting/setting');
+		
+		if(version_compare(VERSION, '3.0.0', '>=')) {
+			$token = 'user_token=' . $this->session->data['user_token'];
+			$path = 'marketplace/extension';
+			$prefix = 'payment_';
+		} else {
+			$token = 'token=' . $this->session->data['token'];
+			$path = 'extension/extension';
+			$prefix = '';
+		}
+		
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-			$this->model_setting_setting->editSetting('securesubmit', $this->request->post);
+			$this->model_setting_setting->editSetting($prefix . 'securesubmit', $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=payment', 'SSL'));
+			$this->response->redirect($this->url->link($path, $token . '&type=payment', 'SSL'));
 		}
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -85,102 +96,102 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text'      => $this->language->get('text_home'),
-			'href'      => $this->url->link('common/home', 'token=' . $this->session->data['token'], 'SSL'),
+			'href'      => $this->url->link('common/home', $token, 'SSL'),
 			'separator' => false
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text'      => $this->language->get('text_payment'),
-			'href' 		=> $this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=payment', true),
+			'href' 		=> $this->url->link($path, $token . '&type=payment', true),
 			'separator' => ' :: '
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text'      => $this->language->get('heading_title'),
-			'href'      => $this->url->link('extension/payment/securesubmit', 'token=' . $this->session->data['token'], 'SSL'),
+			'href'      => $this->url->link('extension/payment/securesubmit', $token, 'SSL'),
 		);
 
-		$data['action'] = $this->url->link('extension/payment/securesubmit', 'token=' . $this->session->data['token'], 'SSL');
-		$data['cancel'] = $this->url->link('extension/extension', 'token=' . $this->session->data['token'] . '&type=payment', true);
+		$data['action'] = $this->url->link('extension/payment/securesubmit', $token, 'SSL');
+		$data['cancel'] = $this->url->link($path, $token . '&type=payment', true);
 
-		if (isset($this->request->post['securesubmit_test_public_key'])) {
-			$data['securesubmit_test_public_key'] = $this->request->post['securesubmit_test_public_key'];
+		if (isset($this->request->post[$prefix . 'securesubmit_test_public_key'])) {
+			$data[$prefix . 'securesubmit_test_public_key'] = $this->request->post[$prefix . 'securesubmit_test_public_key'];
 		} else {
-			$data['securesubmit_test_public_key'] = $this->config->get('securesubmit_test_public_key');
+			$data[$prefix . 'securesubmit_test_public_key'] = $this->config->get($prefix . 'securesubmit_test_public_key');
 		}
 
-		if (isset($this->request->post['securesubmit_test_private_key'])) {
-			$data['securesubmit_test_private_key'] = $this->request->post['securesubmit_test_private_key'];
+		if (isset($this->request->post[$prefix . 'securesubmit_test_private_key'])) {
+			$data[$prefix . 'securesubmit_test_private_key'] = $this->request->post[$prefix . 'securesubmit_test_private_key'];
 		} else {
-			$data['securesubmit_test_private_key'] = $this->config->get('securesubmit_test_private_key');
+			$data[$prefix . 'securesubmit_test_private_key'] = $this->config->get($prefix . 'securesubmit_test_private_key');
 		}
 
-		if (isset($this->request->post['securesubmit_live_public_key'])) {
-			$data['securesubmit_live_public_key'] = $this->request->post['securesubmit_live_public_key'];
+		if (isset($this->request->post[$prefix . 'securesubmit_live_public_key'])) {
+			$data[$prefix . 'securesubmit_live_public_key'] = $this->request->post[$prefix . 'securesubmit_live_public_key'];
 		} else {
-			$data['securesubmit_live_public_key'] = $this->config->get('securesubmit_live_public_key');
+			$data[$prefix . 'securesubmit_live_public_key'] = $this->config->get($prefix . 'securesubmit_live_public_key');
 		}
 
-		if (isset($this->request->post['securesubmit_live_private_key'])) {
-			$data['securesubmit_live_private_key'] = $this->request->post['securesubmit_live_private_key'];
+		if (isset($this->request->post[$prefix . 'securesubmit_live_private_key'])) {
+			$data[$prefix . 'securesubmit_live_private_key'] = $this->request->post[$prefix . 'securesubmit_live_private_key'];
 		} else {
-			$data['securesubmit_live_private_key'] = $this->config->get('securesubmit_live_private_key');
+			$data[$prefix . 'securesubmit_live_private_key'] = $this->config->get($prefix . 'securesubmit_live_private_key');
 		}
 
-		if (isset($this->request->post['securesubmit_mode'])) {
-			$data['securesubmit_mode'] = $this->request->post['securesubmit_mode'];
+		if (isset($this->request->post[$prefix . 'securesubmit_mode'])) {
+			$data[$prefix . 'securesubmit_mode'] = $this->request->post[$prefix . 'securesubmit_mode'];
 		} else {
-			$data['securesubmit_mode'] = $this->config->get('securesubmit_mode');
+			$data[$prefix . 'securesubmit_mode'] = $this->config->get($prefix . 'securesubmit_mode');
 		}
 
-		if (isset($this->request->post['securesubmit_method'])) {
-			$data['securesubmit_method'] = $this->request->post['securesubmit_method'];
+		if (isset($this->request->post[$prefix . 'securesubmit_method'])) {
+			$data[$prefix . 'securesubmit_method'] = $this->request->post[$prefix . 'securesubmit_method'];
 		} else {
-			$data['securesubmit_method'] = $this->config->get('securesubmit_method');
+			$data[$prefix . 'securesubmit_method'] = $this->config->get($prefix . 'securesubmit_method');
 		}
 
-		if (isset($this->request->post['securesubmit_total'])) {
-			$data['securesubmit_total'] = $this->request->post['securesubmit_total'];
+		if (isset($this->request->post[$prefix . 'securesubmit_total'])) {
+			$data[$prefix . 'securesubmit_total'] = $this->request->post[$prefix . 'securesubmit_total'];
 		} else {
-			$data['securesubmit_total'] = $this->config->get('securesubmit_total');
+			$data[$prefix . 'securesubmit_total'] = $this->config->get($prefix . 'securesubmit_total');
 		}
 		
-		if (isset($this->request->post['securesubmit_use_iframes'])) {
-			$data['securesubmit_use_iframes'] = $this->request->post['securesubmit_use_iframes'];
+		if (isset($this->request->post[$prefix . 'securesubmit_use_iframes'])) {
+			$data[$prefix . 'securesubmit_use_iframes'] = $this->request->post[$prefix . 'securesubmit_use_iframes'];
 		} else {
-			$data['securesubmit_use_iframes'] = $this->config->get('securesubmit_use_iframes');
+			$data[$prefix . 'securesubmit_use_iframes'] = $this->config->get($prefix . 'securesubmit_use_iframes');
 		}
 
-		if (isset($this->request->post['securesubmit_order_status_id'])) {
-			$data['securesubmit_order_status_id'] = $this->request->post['securesubmit_order_status_id'];
+		if (isset($this->request->post[$prefix . 'securesubmit_order_status_id'])) {
+			$data[$prefix . 'securesubmit_order_status_id'] = $this->request->post[$prefix . 'securesubmit_order_status_id'];
 		} else {
-			$data['securesubmit_order_status_id'] = $this->config->get('securesubmit_order_status_id');
+			$data[$prefix . 'securesubmit_order_status_id'] = $this->config->get($prefix . 'securesubmit_order_status_id');
 		}
 
 		$this->load->model('localisation/order_status');
 
 		$data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
 
-		if (isset($this->request->post['securesubmit_geo_zone_id'])) {
-			$data['securesubmit_geo_zone_id'] = $this->request->post['securesubmit_geo_zone_id'];
+		if (isset($this->request->post[$prefix . 'securesubmit_geo_zone_id'])) {
+			$data[$prefix . 'securesubmit_geo_zone_id'] = $this->request->post[$prefix . 'securesubmit_geo_zone_id'];
 		} else {
-			$data['securesubmit_geo_zone_id'] = $this->config->get('securesubmit_geo_zone_id');
+			$data[$prefix . 'securesubmit_geo_zone_id'] = $this->config->get($prefix . 'securesubmit_geo_zone_id');
 		}
 
 		$this->load->model('localisation/geo_zone');
 
 		$data['geo_zones'] = $this->model_localisation_geo_zone->getGeoZones();
 
-		if (isset($this->request->post['securesubmit_status'])) {
-			$data['securesubmit_status'] = $this->request->post['securesubmit_status'];
+		if (isset($this->request->post[$prefix . 'securesubmit_status'])) {
+			$data[$prefix . 'securesubmit_status'] = $this->request->post[$prefix . 'securesubmit_status'];
 		} else {
-			$data['securesubmit_status'] = $this->config->get('securesubmit_status');
+			$data[$prefix . 'securesubmit_status'] = $this->config->get($prefix . 'securesubmit_status');
 		}
 
-		if (isset($this->request->post['securesubmit_sort_order'])) {
-			$data['securesubmit_sort_order'] = $this->request->post['securesubmit_sort_order'];
+		if (isset($this->request->post[$prefix . 'securesubmit_sort_order'])) {
+			$data[$prefix . 'securesubmit_sort_order'] = $this->request->post[$prefix . 'securesubmit_sort_order'];
 		} else {
-			$data['securesubmit_sort_order'] = $this->config->get('securesubmit_sort_order') ;
+			$data[$prefix . 'securesubmit_sort_order'] = $this->config->get($prefix . 'securesubmit_sort_order') ;
 		}
 // fraud
 
@@ -212,7 +223,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('extension/payment/securesubmit.tpl', $data));
+		$this->response->setOutput($this->load->view('extension/payment/securesubmit', $data));
 	}
 
 	protected function validate() {

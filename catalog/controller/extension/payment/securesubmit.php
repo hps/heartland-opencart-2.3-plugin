@@ -14,7 +14,7 @@
  *
  *
  * Updated code to use the latest php-SDK https://github.com/hps/heartland-php 2.8.9
- * This update was tested on 2.2.0.0 open cart http://www.opencart.com/index.php?route=download/download/success&download_id=44
+ * This update was tested on 3.0.2.0 open cart https://www.opencart.com/index.php?route=cms/download/download&download_id=55
  * Please ensure your installation complies with OpenCart Server requirements
  * http://docs.opencart.com/requirements/
  *
@@ -93,6 +93,11 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
      * @var null
      */
     private $securesubmit_fraud_fail_var = null;
+	
+	/**
+     * @version
+     */
+    private $prefix;
 
     /**
      * ControllerPaymentSecureSubmit constructor.
@@ -101,6 +106,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
     public function __construct($registry)
     {
         parent::__construct($registry);
+		$this->prefix = version_compare(VERSION, '3.0.0', '>=') ? 'payment_' : '';	
         $this->HpsCreditService = $this->getHpsCreditService();
         // \ControllerPaymentSecureSubmit::get_secure_submit_private_key
         $this->get_secure_submit_private_key();
@@ -114,10 +120,10 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
      */
     public function index()
     {
-        //$this->document->addScript('catalog/view/javascript/secure.submit-1.0.2.js');
+		//$this->document->addScript('catalog/view/javascript/secure.submit-1.0.2.js');
         $this->load->language('extension/payment/securesubmit');
         $data['publicKey'] = $this->get_secure_submit_public_key();
-        $data['securesubmit_use_iframes'] = $this->config->get('securesubmit_use_iframes');
+        $data[$this->prefix . 'securesubmit_use_iframes'] = $this->config->get($this->prefix . 'securesubmit_use_iframes');
         $data['text_credit_card'] = $this->language->get('text_credit_card');
         $data['text_wait'] = $this->language->get('text_wait');
 
@@ -156,10 +162,10 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
         } else {
             $data['base'] = $this->config->get('config_url');
         }
-        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/securesubmit.tpl')) {
-            return $this->load->view($this->config->get('config_template') . '/template/extension/payment/securesubmit.tpl', $data);
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/extension/payment/securesubmit')) {
+            return $this->load->view($this->config->get('config_template') . '/template/extension/payment/securesubmit', $data);
         } else {
-            return $this->load->view('extension/payment/securesubmit.tpl', $data);
+            return $this->load->view('extension/payment/securesubmit', $data);
         }
     }
 
@@ -231,7 +237,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
             sleep(self::VELOCITY_WAIT * $this->sessionVar('count'));
             throw new HpsException(sprintf('%s %s', $this->securesubmit_fraud_message, $this->sessionVar('previous')));
         }
-        switch ($this->config->get('securesubmit_method')) {
+        switch ($this->config->get($this->prefix . 'securesubmit_method')) {
             case 'authorization':
                 // process as authorization only. this will not be settled as a batch without further administrative action
                 // \HpsCreditService::authorize
@@ -262,7 +268,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
         $message .= 'Card Type:' . ' ' . $this->getCcType($response) . "\n";
 
         // \ModelCheckoutOrder::addOrderHistory
-        $this->model_checkout_order->addOrderHistory($orderID, $this->config->get('securesubmit_order_status_id'), $message, false);
+        $this->model_checkout_order->addOrderHistory($orderID, $this->config->get($this->prefix . 'securesubmit_order_status_id'), $message, false);
         return $this->url->link('checkout/success');
     }
 
@@ -341,9 +347,9 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
     private function get_secure_submit_private_key()
     {
         if ($this->HpsServicesConfig->secretApiKey === null) {
-            $mode = trim($this->config->get('securesubmit_mode'));
+            $mode = trim($this->config->get($this->prefix . 'securesubmit_mode'));
             $this->HpsServicesConfig->secretApiKey =
-                filter_var(trim($this->config->get('securesubmit_' . $mode . '_private_key')), FILTER_SANITIZE_STRING);
+                filter_var(trim($this->config->get($this->prefix . 'securesubmit_' . $mode . '_private_key')), FILTER_SANITIZE_STRING);
         }
         if (!$this->HpsServicesConfig->validate(HpsConfigInterface::KEY_TYPE_SECRET)) {
             throw new HpsAuthenticationException(HpsExceptionCodes::AUTHENTICATION_ERROR, 'Incorrectly configured PrivateKey');
@@ -358,9 +364,9 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
     private function get_secure_submit_public_key()
     {
         if ($this->HpsServicesConfig->publicApiKey === null) {
-            $mode = trim($this->config->get('securesubmit_mode'));
+            $mode = trim($this->config->get($this->prefix . 'securesubmit_mode'));
             $this->HpsServicesConfig->publicApiKey =
-                filter_var(trim($this->config->get('securesubmit_' . $mode . '_public_key')), FILTER_SANITIZE_STRING);
+                filter_var(trim($this->config->get($this->prefix . 'securesubmit_' . $mode . '_public_key')), FILTER_SANITIZE_STRING);
         }
         if (!$this->HpsServicesConfig->validate(HpsConfigInterface::KEY_TYPE_PUBLIC)) {
             throw new HpsAuthenticationException(HpsExceptionCodes::AUTHENTICATION_ERROR, 'Incorrectly configured PublicKey');
