@@ -32,6 +32,17 @@
     height:40px;
 }
 
+.form-horizontal p.error-message {
+    color:red;
+    display: none;
+    margin:0px 15px;
+}
+
+.form-horizontal div.disable-button{
+    pointer-events: none;
+    opacity: 0.65;
+}
+
 #hpsPaymentForm .ss-form-control:focus {
     text-transform:uppercase;
     border:1px solid #3989e3;

@@ -155,12 +155,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 		} else {
 			$data[$prefix . 'securesubmit_total'] = $this->config->get($prefix . 'securesubmit_total');
 		}
-		
-		if (isset($this->request->post[$prefix . 'securesubmit_use_iframes'])) {
-			$data[$prefix . 'securesubmit_use_iframes'] = $this->request->post[$prefix . 'securesubmit_use_iframes'];
-		} else {
-			$data[$prefix . 'securesubmit_use_iframes'] = $this->config->get($prefix . 'securesubmit_use_iframes');
-		}
+
 
 		if (isset($this->request->post[$prefix . 'securesubmit_order_status_id'])) {
 			$data[$prefix . 'securesubmit_order_status_id'] = $this->request->post[$prefix . 'securesubmit_order_status_id'];
