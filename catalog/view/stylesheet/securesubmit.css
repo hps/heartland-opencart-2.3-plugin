@@ -59,7 +59,7 @@ p.error-message {
 #hpsPaymentForm .form-horizontal .control-label {
     text-align:left;
     width:60%;
-    padding-left:none;
+    padding-left:0;
     font-weight:400;
     margin-bottom:5px;
     color:#777777;

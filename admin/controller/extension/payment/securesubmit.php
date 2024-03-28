@@ -156,7 +156,6 @@ class ControllerExtensionPaymentSecuresubmit extends Controller {
 			$data[$prefix . 'securesubmit_total'] = $this->config->get($prefix . 'securesubmit_total');
 		}
 
-
 		if (isset($this->request->post[$prefix . 'securesubmit_order_status_id'])) {
 			$data[$prefix . 'securesubmit_order_status_id'] = $this->request->post[$prefix . 'securesubmit_order_status_id'];
 		} else {
