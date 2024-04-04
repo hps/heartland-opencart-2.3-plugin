@@ -114,20 +114,6 @@
                             <input type="text" name="securesubmit_total" value="<?php echo $securesubmit_total; ?>" placeholder="<?php echo $entry_total; ?>" id="entry-total" class="form-control"/>
                         </div>
                     </div>
-					<div class="form-group">
-                      <label class="col-sm-2 control-label" for="status"><?php echo $entry_use_iframes; ?></label>
-                      <div class="col-sm-10">
-                        <select name="securesubmit_use_iframes" id="status" class="form-control">
-                          <?php if ($securesubmit_use_iframes) { ?>
-                            <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
-                            <option value="0"><?php echo $text_disabled; ?></option>
-                          <?php } else { ?>
-                            <option value="1"><?php echo $text_enabled; ?></option>
-                            <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
-                          <?php } ?>
-                        </select>
-                      </div>
-                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="order-status"><?php echo $entry_order_status; ?></label>
                         <div class="col-sm-10">

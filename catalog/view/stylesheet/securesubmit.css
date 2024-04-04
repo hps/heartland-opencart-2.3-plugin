@@ -15,12 +15,12 @@
 #hpsPaymentForm label {
     text-transform:uppercase;
 }
-#hpsPaymentForm .form-group:nth-child(3),
-#hpsPaymentForm .form-group:nth-child(4) {
-    width:49%;
-    display:inline-block;
+.form-group.gp-card-exp,
+.form-group.gp-card-cvv {
+    width: 50%;
+    display: inline-block;
 }
-#hpsPaymentForm .form-group:nth-child(4) {
+.form-group.gp-card-cvv {
     float:right;
 }
 
@@ -32,7 +32,18 @@
     height:40px;
 }
 
-#hpsPaymentForm .ss-form-control:focus {
+p.error-message {
+    color:red;
+    display: none;
+    margin:0px 15px;
+}
+
+.form-horizontal div.disable-button{
+    pointer-events: none;
+    opacity: 0.65;
+}
+
+#secure-payment-field:focus {
     text-transform:uppercase;
     border:1px solid #3989e3;
     border-radius:0px;
@@ -41,12 +52,14 @@
 
 #hpsPaymentForm .ss-label {
     text-transform:uppercase;
+    position: relative;
+    left: 1%;
 }
 
 #hpsPaymentForm .form-horizontal .control-label {
     text-align:left;
-    width:60%; 
-    padding-left:none;
+    width:60%;
+    padding-left:0;
     font-weight:400;
     margin-bottom:5px;
     color:#777777;
@@ -54,11 +67,7 @@
 
 #hpsPaymentForm .form-horizontal .form-group {
     clear:none;
-}
 
-#hpsPaymentForm .form-group {
-    margin-bottom:none;
-    width:100%;
 }
 
 #hpsPaymentForm .ss-shield {
@@ -127,7 +136,7 @@
 }
 #hpsPaymentForm .valid.card-type-mastercard {
     background:transparent url("../image/ss-sprite.png") no-repeat top right;
-    background-size:89px 460px;    
+    background-size:89px 460px;
     background-position-y:-99px;
 }
 
@@ -146,13 +155,11 @@
     color:#555555;
 }
 
-#button-confirm {
-    border-radius:0;
-    background-color:#3989e3;
+#submit_button {
+    border-radius:0px !important;
     border-color:#2e6da4;
-}
-#button-confirm:hover {
-    background-color:#2e6da4;
+    float: right;
+    width: 15%;
 }
 
 #hpsPaymentForm .col-md-6 {
