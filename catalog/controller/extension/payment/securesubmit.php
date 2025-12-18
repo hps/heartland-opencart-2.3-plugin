@@ -5,15 +5,15 @@
  * OpenCart already supports captcha
  * google recaptcha is available as an extension.
  * http://code.tutsplus.com/tutorials/set-up-google-recaptcha-in-opencart--cms-25518
- * This plugin is maintained in github at https://github.com/hps/heartland-opencart-plugin
+ * This plugin is maintained in github at https://github.com/globalpayments/opencart-hybrid
  *
  *
- * Heartland recommends all merchants enable these settings which will be the default if not changed in the extension settings.
- * Heartland also recommends using reCaptcha from google. Your situation may differ. In an ever changing evolving world of cyber-threats
+ * Global Payments recommends all merchants enable these settings which will be the default if not changed in the extension settings.
+ * Global Payments also recommends using reCaptcha from google. Your situation may differ. In an ever changing evolving world of cyber-threats
  * you should regularly check for updates to this an any other plugin in an e-commerce site.
  *
  *
- * Updated code to use the latest php-SDK https://github.com/hps/heartland-php 2.8.9
+ * Updated code to use the latest php-SDK https://github.com/globalpayments/php-sdk
  * This update was tested on 3.0.2.0 open cart https://www.opencart.com/index.php?route=cms/download/download&download_id=55
  * Please ensure your installation complies with OpenCart Server requirements
  * http://docs.opencart.com/requirements/
@@ -223,7 +223,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
      * @throws \HpsCreditException      Pretty much any kind of issuer based declines.
      *                                  These response come from the card holders issuing bank
      * @throws \HpsException            If this occurs check the ip of your server is not outside of US and contact
-     *                                  Heartland for additional information.
+     *                                  Global Payments for additional information.
      *                                  Also this exception will catch  our velocity exceptions
      * @throws \HpsGatewayException     These exceptions indicate that the transaction was not sent to the issuer.
      *                                  The transaction was rejected by the gateway for the listed reason
@@ -451,7 +451,7 @@ class ControllerExtensionPaymentSecuresubmit extends Controller
 
     /**
      * Open cart sets session variables to never timeout while the browser is open
-     * Heartland needs these values to die at a time defined in settings
+     * Global Payments needs these values to die at a time defined in settings
      * this function works by checking the last time a var was set and  resetting if they have timed out
      * @param null|string $key
      * @param null|string $val

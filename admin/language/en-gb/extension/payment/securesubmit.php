@@ -1,14 +1,14 @@
 <?php
 // Headings
-$_['heading_title']      		= 'SecureSubmit';
+$_['heading_title']      		= 'Global Payments';
 $_['text_edit']    				= 'Edit Secure Submit';
 $_['text_checkout_settings']    = 'Checkout Settings';
 $_['text_velocity_settings']    = 'Fraud Options';
 
 // Text
 $_['text_payment']       		= 'Payment';
-$_['text_success']       		= 'Success: You have modified SecureSubmit account details!';
-$_['text_securesubmit']  		= '<a href="https://developer.heartlandpaymentsystems.com/SecureSubmit" target="_blank"><img src="view/image/payment/securesubmit.jpg" alt="SecureSubmit" title="SecureSubmit" style="border: 1px solid #EEEEEE;" /></a>';
+$_['text_success']       		= 'Success: You have modified Global Payments account details!';
+$_['text_securesubmit']  		= '<a href="https://developer.globalpayments.com/heartland/payments/overview" target="_blank"><img src="view/image/payment/globalpayments.png" alt="Global Payments" title="Global Payments" style="border: 1px solid #EEEEEE;" /></a>';
 $_['text_test']          		= 'Test';
 $_['text_live']          		= 'Live';
 $_['text_authorization'] 		= 'Authorization';
@@ -29,7 +29,7 @@ $_['entry_order_status'] = 'Order Status';
 $_['entry_geo_zone']     = 'Geo Zone';
 $_['entry_status']       = 'Status';
 $_['entry_sort_order']   = 'Sort Order';
-$_['entry_use_iframes']  = 'Host payment fields on Heartland\'s servers';
+$_['entry_use_iframes']  = 'Host payment fields on Global Payments servers';
 // Fraud options
 $_['entry_fraud_enable'] = 'Enable Fraud Options';
 $_['entry_fraud_message']= 'Display Message';
@@ -37,7 +37,7 @@ $_['entry_fraud_fail']   = 'How many failed attempts before blocking?';
 $_['entry_fraud_time']   = 'How long (in minutes) should we keep a tally of recent failures?';
 
 // Error
-$_['error_permission']   = 'Warning: You do not have permission to modify payment SecureSubmit!';
+$_['error_permission']   = 'Warning: You do not have permission to modify Global Payments!';
 $_['error_login']        = 'Login ID Required!';
 $_['error_key']          = 'Transaction Key Required!';
 ?>
