@@ -2,7 +2,7 @@ Online Privacy & Cookie Policy Statement ("Privacy Policy")
 
 Last modified on June 21, 2012
 
-Heartland Payment Systems, Inc. (“Heartland,” “we,” “us,” “our”) recognizes the importance of maintaining effective privacy practices.  This Privacy & Cookie Policy explains the online data collection and use policies that apply to the websites, mobile applications and online services (collectively “Services”) that are owned or controlled by Heartland and are linked to this Policy page.
+Global Payments Systems, Inc. (“Global Payments,” “we,” “us,” “our”) recognizes the importance of maintaining effective privacy practices.  This Privacy & Cookie Policy explains the online data collection and use policies that apply to the websites, mobile applications and online services (collectively “Services”) that are owned or controlled by Global Payments and are linked to this Policy page.
 Click below to jump to a particular topic:
 
 1.       Information Collection and Use
@@ -25,14 +25,14 @@ Information collected through technology:  When you visit our websites or mobile
 
 2.   Sharing of Information
 
-We do not sell or share your information with third parties outside Heartland and our group of companies (which include any parents, subsidiaries and affiliates), without your consent, except as described below and in this Policy: 
+We do not sell or share your information with third parties outside Global Payments and our group of companies (which include any parents, subsidiaries and affiliates), without your consent, except as described below and in this Policy:
 We may share your information with our service providers and business partners (e.g., financial institutions or card brands that issue payment cards or are involved in transaction processing; entities that assist with fraud prevention or collections; merchants that sell gift cards managed through our websites or services; schools), who assist us in providing our Services.  We may also share information with our service providers and business partners to help us monitor usage and other analytics regarding our Services, and to help us improve these offerings.  When we share your information with our service providers and business partners, we only provide the information that these third parties reasonably need to perform their functions.
 We may aggregate, or strip information of personally identifying characteristics, and may share that aggregated or anonymized information with third parties.
 We may share or disclose your information if we determine, in our sole discretion, that we are required to do so under applicable law or regulatory requirements, or if we reasonably believe disclosure is necessary to prevent harm or financial loss, or in connection with preventing fraud or illegal activity, and/or to enforce our Terms of Use.
 We reserve the right to transfer any information we collect in the event we sell or transfer all or a portion of our business or assets (including any shares in the company) or any portion or combination of our products, services, businesses and/or assets.  Should such a transaction occur (whether a divestiture, merger, acquisition, bankruptcy, dissolution, reorganization, liquidation, or similar transaction or proceeding), we will use reasonable efforts to ensure that any transferred information is treated in a manner consistent with this Privacy Policy.
 3.   Children’s Privacy
 
-Heartland’s websites, mobile applications and services are intended for use strictly by adults.  Heartland does not knowingly solicit or collect personal information from children under the age of 13.  If Heartland obtains knowledge that it has collected personal information from a child under 13 in retrievable form in its files, Heartland will delete that information.
+Global Payments websites, mobile applications and services are intended for use strictly by adults.  Global Payments does not knowingly solicit or collect personal information from children under the age of 13.  If Global Payments obtains knowledge that it has collected personal information from a child under 13 in retrievable form in its files, Global Payments will delete that information.
 
 4.   Your Choices
 
@@ -44,13 +44,13 @@ Cookie Controls.  You may be able to set your Internet browser or mobile device 
  
 5.   Data Protection and Storage
 
-Heartland maintains reasonable administrative, technical and physical safeguards to protect the confidentiality of information transmitted online, including but not limited to encryption, firewalls and SSL (Secure Sockets Layer). Heartland has implemented policies and practices pursuant to various security rules and regulations relating to the security and safeguarding of payment cardholder data, including the Payment Card Industry Data Security Standards (PCI-DSS).  Heartland is not liable for loss of passwords due to user negligence.  If you believe your password has been lost or compromised, we recommend that you immediately change your password.
+Global Payments maintains reasonable administrative, technical and physical safeguards to protect the confidentiality of information transmitted online, including but not limited to encryption, firewalls and SSL (Secure Sockets Layer). Global Payments has implemented policies and practices pursuant to various security rules and regulations relating to the security and safeguarding of payment cardholder data, including the Payment Card Industry Data Security Standards (PCI-DSS).  Global Payments is not liable for loss of passwords due to user negligence.  If you believe your password has been lost or compromised, we recommend that you immediately change your password.
 
-We may store and process information in the United States or any other country in which Heartland or its parents, subsidiaries, affiliates or service providers maintain facilities. Heartland may transfer information that we collect about you, including personal information, to parents, subsidiaries, affiliates, or service providers across borders and from your country or jurisdiction to other countries or jurisdictions around the world.  If you are located in the European Union or other regions with laws governing data collection and use that may differ from U.S. law, please note that we may transfer information, including personal information, to a country and jurisdiction that does not have the same data protection laws as your jurisdiction, and you consent to the transfer of information to the U.S. or any other country in which Heartland or its parent, subsidiaries, affiliates or service providers maintain facilities and to the use and disclosure of information as described in this Privacy Policy. 
+We may store and process information in the United States or any other country in which Global Payments or its parents, subsidiaries, affiliates or service providers maintain facilities. Global Payments may transfer information that we collect about you, including personal information, to parents, subsidiaries, affiliates, or service providers across borders and from your country or jurisdiction to other countries or jurisdictions around the world.  If you are located in the European Union or other regions with laws governing data collection and use that may differ from U.S. law, please note that we may transfer information, including personal information, to a country and jurisdiction that does not have the same data protection laws as your jurisdiction, and you consent to the transfer of information to the U.S. or any other country in which Global Payments or its parent, subsidiaries, affiliates or service providers maintain facilities and to the use and disclosure of information as described in this Privacy Policy.
 
 6.   Third-Party Websites and Services
 
-Our websites or Services may provide links to (or links from) third-party websites or services – none of which are governed by this Privacy Policy.  To the extent that any linked third-party websites or services you visit are not owned or controlled by Heartland, we are not responsible for those websites’ or services’ content or information practices.  We strongly encourage you to review the privacy policies of any site or service before providing any personal information.
+Our websites or Services may provide links to (or links from) third-party websites or services – none of which are governed by this Privacy Policy.  To the extent that any linked third-party websites or services you visit are not owned or controlled by Global Payments, we are not responsible for those websites’ or services’ content or information practices.  We strongly encourage you to review the privacy policies of any site or service before providing any personal information.
 
 7.   Changes to Privacy Policy
 
@@ -58,9 +58,9 @@ We reserve the right to change this Privacy Policy from time to time in our sole
 
 8.   Contact Us
 
-For additional inquiries about this Privacy Policy, please contact Heartland at 1-888-798-3131 to speak to a legal representative, or send us an email at PrivacyPolicy@e-hps.com, or letter.
+For additional inquiries about this Privacy Policy, please contact Global Payments at 1-888-798-3131 to speak to a legal representative, or send us an email at PrivacyPolicy@e-hps.com, or letter.
 
 General Counsel Office
-Heartland Payment Systems, Inc.
+Global Payments Systems, Inc.
 90 Nassau Street
 Princeton, NJ 08542

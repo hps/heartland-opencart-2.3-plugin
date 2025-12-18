@@ -1,6 +1,6 @@
 <?php
 // Text
-$_['text_title']           = 'Credit Card (SecureSubmit)';
+$_['text_title']           = 'Credit Card (Global Payments)';
 $_['text_credit_card']     = 'Credit Card Details';
 $_['text_wait']            = 'Please wait';
 
